@@ -1,0 +1,16 @@
+﻿@model Model.Pessoa
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Alterar Pessoa</h2>
+
+@using (Html.BeginForm("Edit")) {
+    Html.HiddenFor(model => model.Codigo);
+    Html.RenderPartial("_EditOrCreate", Model);    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,124 @@
+﻿@model Model.Pessoa
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Alterar Pessoas</legend>
+
+        @Html.HiddenFor(model => model.Codigo)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nome)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nome)
+            @Html.ValidationMessageFor(model => model.Nome)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Endereco)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Endereco)
+            @Html.ValidationMessageFor(model => model.Endereco)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Complemento)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Complemento)
+            @Html.ValidationMessageFor(model => model.Complemento)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.codigoEstado)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ddlEstados", (SelectList) ViewData["bagEstados"], null, new {
+                onchange = "window.location.href='/Pessoa/ddlEstadoChange?codigoEstado=2';"
+            })
+            @Html.ValidationMessageFor(model => model.codigoEstado)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.codigoCidade)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("bagCidades")
+            @Html.ValidationMessageFor(model => model.codigoCidade)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Bairro)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Bairro)
+            @Html.ValidationMessageFor(model => model.Bairro)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Cep)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Cep)
+            @Html.ValidationMessageFor(model => model.Cep)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Celular)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Celular)
+            @Html.ValidationMessageFor(model => model.Celular)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Telefone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telefone)
+            @Html.ValidationMessageFor(model => model.Telefone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cnpjCPF)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cnpjCPF)
+            @Html.ValidationMessageFor(model => model.cnpjCPF)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.rgIE)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.rgIE)
+            @Html.ValidationMessageFor(model => model.rgIE)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Tipo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Tipo)
+            @Html.ValidationMessageFor(model => model.Tipo)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
