@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using TravelNM.Models;
 
 namespace Application.Controllers
 {
@@ -45,27 +46,24 @@ namespace Application.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Create(int codigoEstado = 1)
+        public ActionResult Create(PessoaView pessoaview, int codigoEstado = 1)
         {
             EstadoController estadocontroller = new EstadoController();
             CidadeController cidadecontroller = new CidadeController();
 
-            ViewBag.bagEstados = new SelectList(estadocontroller.ObterEstados(), "Codigo", "Nome");
-            ViewBag.bagCidades = new SelectList(cidadecontroller.ObterCidadesId(codigoEstado), "Codigo", "Nome");
+            estadocontroller.ObterEstados(pessoaview);
+            cidadecontroller.ObterCidadesId(pessoaview, codigoEstado);
 
-            return View();
+            return View(pessoaview);
         }
 
-        public ActionResult ddlEstadoChange(int codigoEstado)
+        public JsonResult getCidadesEstado(PessoaView pessoaview, int Id)
         {
-            EstadoController estadocontroller = new EstadoController();
-            ViewBag.bagEstados = new SelectList(estadocontroller.ObterEstadosId(codigoEstado), "Codigo", "Nome");
+            CidadeController cidadecontroller = new CidadeController(); 
 
-            CidadeController cidadecontroller = new CidadeController();
-            ViewBag.bagCidades = new SelectList(cidadecontroller.ObterCidadesId(codigoEstado), "Codigo", "Nome");
-
-            return View("Create");
+            return Json(new SelectList(cidadecontroller.ObterCidadesId(pessoaview, Id),"Codigo","Nome"), JsonRequestBehavior.AllowGet);
         }
+
 
         [HttpPost]
         public ActionResult Create(Pessoa pessoa)

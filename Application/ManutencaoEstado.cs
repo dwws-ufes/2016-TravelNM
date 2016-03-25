@@ -16,11 +16,5 @@ namespace Application
             var estados = db.Estado.ToList();
             return estados;
         }
-
-        public List<Estado> ObterEstadoId(int id)
-        {
-            var estados = db.Estado.Where(e => e.Codigo == id).ToList();
-            return estados;
-        }
     }
 }
