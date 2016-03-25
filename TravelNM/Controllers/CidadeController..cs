@@ -4,15 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Model;
+using TravelNM.Models;
 
 namespace Application.Controllers
 {
     public class CidadeController : Controller
     {
-        public List<Cidade> ObterCidadesId(int codigoEstado)
+        public List<Cidade> ObterCidadesId(PessoaView pessoaview, int codigoEstado)
         {
-            var cidades = new ManutencaoCidade().ObterCidadesIdEstado(codigoEstado).ToList();
-            return cidades;
+            pessoaview.Cidades = new ManutencaoCidade().ObterCidadesIdEstado(codigoEstado).ToList();
+            return pessoaview.Cidades;
         }
     }   
 }
