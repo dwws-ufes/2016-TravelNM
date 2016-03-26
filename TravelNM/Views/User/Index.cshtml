@@ -36,7 +36,7 @@
                                     <th>@Resources.User.Id</th>
                                     <th>@Resources.User.Name</th>
                                     <th>@Resources.User.Email</th>
-                                    <th>-</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,12 +46,15 @@
                                         <td>@user.Id</td>
                                         <td>@user.Name</td>
                                         <td>@user.Email</td>
-                                        <td class="center"><button>x</button></td>
+                                        <td class="center">
+                                            <a href="@Url.Action("Edit", "User", new { id = user.Id })"><i class="fa fa-edit fa-fw"></i></a>
+                                            <a data-ajax="true" data-ajax-method="POST" data-ajax-success="onSuccessDelete" href="@Url.Action("Delete", "User", new { id = user.Id })" data-ajax-confirm="@Resources.Global.ConfirmRemove"><i class="fa fa-trash-o fa-fw"></i></a>
+                                        </td>
                                     </tr>
                                 }
-                                
-                                </tbody>
-</table>
+
+                            </tbody>
+                        </table>
                     </div>
 
                 </div>
@@ -59,17 +62,17 @@
             <!--End Advanced Tables -->
         </div>
     </div>
-    
-    
-    
+
+
+
 </div>
 
 
 @section scripts {
- <!-- Page-Level Plugin Scripts-->
-<script src="~/assets/plugins/dataTables/jquery.dataTables.js"></script>
-<script src="~/assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-<script>
+    <!-- Page-Level Plugin Scripts-->
+    <script src="~/assets/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
         $(document).ready(function () {
             $('#dataTables-example').dataTable({
                 "language": {
@@ -78,6 +81,18 @@
             });
         });
 
-        
-</script>
+        var nb;
+        function onSuccessDelete(result) {
+            if(result == "ok")
+            {
+                alert('@Resources.Global.SuccessRemove')
+            }else
+            {
+                alert('@Resources.Global.FailRemove')
+            }
+
+            window.location.reload();
+        }
+
+    </script>
 }

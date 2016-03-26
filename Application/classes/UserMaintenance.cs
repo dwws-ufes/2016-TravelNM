@@ -3,6 +3,7 @@ using Model;
 using Persistence;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 
@@ -19,12 +20,24 @@ namespace ApplicationTravelMN.classes
 
         public User Get(int id)
         {
-            throw new NotImplementedException();
+            return context.Users.Find(id);
         }
 
         public List<User> GetAll()
         {
             return context.Users.ToList();
+        }
+
+        public void Update(User t)
+        {
+            context.Entry(t).State = EntityState.Modified;
+            context.SaveChanges();
+        }
+
+        public void Delete(User t)
+        {
+            context.Users.Remove(this.Get(t.Id));
+            context.SaveChanges();
         }
     }
 }

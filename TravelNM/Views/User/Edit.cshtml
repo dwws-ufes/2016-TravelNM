@@ -27,11 +27,13 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                        @using (Html.BeginForm("Create", "User", FormMethod.Post, new { @id = "form_user" }))
-                            {
-                                @Html.Partial("_Form", Model);
-                                <button type="submit" class="btn btn-primary">@Resources.Global.Create</button>
-                            }
+                        @using (Html.BeginForm("Update", "User", FormMethod.Post, new { @id = "form_user" }))
+                        {
+                            @Html.HiddenFor(model => model.Id)
+
+                            @Html.Partial("_Form", Model);
+                            <button type="submit" class="btn btn-primary">@Resources.Global.Update</button>
+                        }
                         </div>
                        
                     </div>

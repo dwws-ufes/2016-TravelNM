@@ -549,6 +549,7 @@
     <Content Include="template_web\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="template_web\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

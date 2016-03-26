@@ -123,4 +123,22 @@
   <data name="DATA_TABLE_JSON" xml:space="preserve">
     <value>//cdn.datatables.net/plug-ins/1.10.11/i18n/English.json</value>
   </data>
+  <data name="ConfirmRemove" xml:space="preserve">
+    <value>Are you sure you wish to delete this?</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="FailRemove" xml:space="preserve">
+    <value>Failed to delete record</value>
+  </data>
+  <data name="SuccessRemove" xml:space="preserve">
+    <value>Item successfully removed</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
 </root>

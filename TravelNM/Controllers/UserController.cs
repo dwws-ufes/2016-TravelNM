@@ -27,8 +27,29 @@ namespace TravelNM.Controllers
             return View(new User());
         }
 
+        public ActionResult Edit(int id)
+        {
+            return View(this._maintenanceUser.Get(id));
+        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken()] 
+        [ValidateAntiForgeryToken()]
+        public ActionResult Update(User user)
+        {
+            this._maintenanceUser.Update(user);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public JsonResult Delete(User user)
+        {
+            this._maintenanceUser.Delete(user);
+            return Json("ok");
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken()]
         public ActionResult Create(User user)
         {
             this._maintenanceUser.Save(user);

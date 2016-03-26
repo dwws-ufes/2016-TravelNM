@@ -51,7 +51,13 @@ namespace TravelNM.Controllers
 
             var action = (Request.UrlReferrer.Segments.Skip(3).Take(1).SingleOrDefault() ?? "Index").Trim('/');
 
-            return RedirectToAction(action, controller, new { culture = culture });
+            var id = (Request.UrlReferrer.Segments.Skip(4).Take(1).SingleOrDefault() ?? "0").Trim('/');
+
+            if("0" == id)
+                return RedirectToAction(action, controller, new { culture = culture });
+            else
+                return RedirectToAction(action, controller, new { culture = culture, id = id });
+
         }
 
         public void Logout()

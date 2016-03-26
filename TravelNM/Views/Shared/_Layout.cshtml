@@ -56,7 +56,7 @@
             <div class="header">
                 <div class="header-left animated wow bounceInLeft" data-wow-delay="800ms">
                     <form>
-                        <input type="text" value="@Resources.Web.SearchHere" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Here...';}" required="">
+                        <input type="text" value="@Resources.Web.SearchHere" onfocus="this.value = '';" onblur="if (this.value == '') { this.value = '@Resources.Web.SearchHere'; }">
                         <input type="submit" value="">
                         <div class="clearfix"> </div>
                     </form>
