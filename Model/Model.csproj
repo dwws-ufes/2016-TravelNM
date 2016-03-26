@@ -53,10 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cidade.cs" />
-    <Compile Include="Estado.cs" />
-    <Compile Include="Pessoa.cs" />
+    <Compile Include="antigos\Cidade.cs" />
+    <Compile Include="antigos\Estado.cs" />
+    <Compile Include="antigos\Pessoa.cs" />
+    <Compile Include="Entity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

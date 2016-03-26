@@ -1,48 +1,144 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
-        </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
-                </div>
-            </div>
-        </footer>
+﻿@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
 
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+@helper selected(string c, string culture)
+{
+    if (c == culture)
+    {
+        @:checked="checked"
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="~/assets_web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets_web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- js -->
+    <script src="~/assets_web/js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <!-- animation-effect -->
+    <link href="~/assets_web/css/animate.min.css" rel="stylesheet">
+    <script src="~/assets_web/js/wow.min.js"></script>
+    <script>
+ new WOW().init();
+    </script>
+    <!-- //animation-effect -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/assets_web/js/move-top.js"></script>
+    <script type="text/javascript" src="~/assets_web/js/easing.js"></script>
+    <script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},100);
+		});
+	});
+    </script>
+    <!-- start-smoth-scrolling -->
+</head>
+<body>
+    <!-- banner -->
+    <div class="banner">
+        <div class="container">
+            <div class="header">
+                <div class="header-left animated wow bounceInLeft" data-wow-delay="800ms">
+                    <form>
+                        <input type="text" value="@Resources.Web.SearchHere" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Here...';}" required="">
+                        <input type="submit" value="">
+                        <div class="clearfix"> </div>
+                    </form>
+                </div>
+                <div class="header-left1 animated wow zoomIn" data-wow-delay="800ms">
+                    <h1><a href="/">TravelMN<span>@Resources.Web.WhereToGoThisSummer</span></a></h1>
+                </div>
+                <!-- #push_sidebar -->
+                <div class="top-nav">
+                    <span >@*<img src="~/assets_web/images/menu.png" alt="" />*@
+                    @using (Html.BeginForm("SetCulture", "Authentication"))
+                    {
+                        @Html.DropDownList("culture", new SelectListItem[]
+            {
+                new SelectListItem() { Text = "English", Value = "en-us", Selected = ("en-us" == culture)  },
+                new SelectListItem() { Text = "Portugues", Value = "pt-br", Selected = ("pt-br" == culture) }},
+                new
+                {
+                    @onchange = "form.submit();"
+                })
+                    }
+                    </span>
+                    <ul class="nav1">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="shortcodes.html">Short Codes</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="clearfix"> </div>
+                    <!-- script-for-menu -->
+                    <script>
+                        $("span.menu").click(function () {
+                            $("ul.nav1").slideToggle(300, function () {
+                                // Animation complete.
+                            });
+                        });
+                    </script>
+                    <!-- /script-for-menu -->
+                </div>
+                <!-- /#push_sidebar -->
+                <div class="clearfix"> </div>
+            </div>
+            <div class="banner-info animated wow slideInUp" data-wow-delay="800ms">
+                <h3>@Resources.Web.DiscoverTheMostBeautifulPlaces</h3>
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="#" class="twitter"></a></li>
+                        <li><a href="#" class="facebook"></a></li>
+                        <li><a href="#" class="google"></a></li>
+                        <li><a href="#" class="p"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //banner -->
+    <div class="footer-copy">
+        <div class="container">
+            <p class="animated wow zoomIn" data-wow-delay=".5s">&copy @DateTime.Now.Year TravelMN</p>
+        </div>
+    </div>
+
+    @RenderBody()
+    <!-- //footer -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+				};
+			*/
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+</body>
 </html>

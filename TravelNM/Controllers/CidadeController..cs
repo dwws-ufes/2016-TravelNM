@@ -12,8 +12,9 @@ namespace Application.Controllers
     {
         public List<Cidade> ObterCidadesId(PessoaView pessoaview, int codigoEstado)
         {
-            pessoaview.Cidades = new ManutencaoCidade().ObterCidadesIdEstado(codigoEstado).ToList();
-            return pessoaview.Cidades;
+            //pessoaview.Cidades = new ManutencaoCidade().ObterCidadesIdEstado(codigoEstado).ToList();
+            //return pessoaview.Cidades;
+            return null;
         }
     }   
 }

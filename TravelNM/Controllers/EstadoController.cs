@@ -12,8 +12,9 @@ namespace Application.Controllers
     {
         public List<Estado> ObterEstados(PessoaView pessoaview)
         {
-            pessoaview.Estados = new ManutencaoEstado().ObterEstados().ToList();
-            return pessoaview.Estados;
+           // pessoaview.Estados = new ManutencaoEstado().ObterEstados().ToList();
+          //  return pessoaview.Estados;
+            return null;
         }
     }   
 }

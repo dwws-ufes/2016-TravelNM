@@ -6,7 +6,7 @@ using System.Data.Entity;
 using Model;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace Application
+namespace Persistence
 {
     public class TravelMNContext : DbContext
     {
@@ -15,6 +15,8 @@ namespace Application
         public DbSet<Estado> Estado { get; set; }
 
         public DbSet<Cidade> Cidade { get; set; }
+
+        public DbSet<User> Users { get; set; }
 
         public TravelMNContext()
         {

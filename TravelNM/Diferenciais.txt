@@ -1,0 +1,3 @@
+﻿ - Sistema responsivo
+ - Suporte a vários idiomas
+ - Validações com HTML5

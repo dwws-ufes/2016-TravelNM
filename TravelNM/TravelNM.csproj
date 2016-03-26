@@ -58,6 +58,18 @@
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net40\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net40-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net40-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
@@ -141,19 +153,71 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\Global.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Global.pt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.pt.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Login.pt.designer.cs">
+      <DependentUpon>Login.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Login.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\User.pt.designer.cs">
+      <DependentUpon>User.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\User.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Web.pt.designer.cs">
+      <DependentUpon>Web.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Web.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Web.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\LocalizationAttribute.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CidadeController..cs" />
     <Compile Include="Controllers\EstadoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Models\PessoaView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -161,6 +225,89 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="assets\css\main-style.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\font-awesome\css\font-awesome.css" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfontba72.svg" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\user.jpg" />
+    <Content Include="assets\plugins\bootstrap\bootstrap.css" />
+    <Content Include="assets\plugins\bootstrap\bootstrap.min.js" />
+    <Content Include="assets\plugins\dataTables\dataTables.bootstrap.css" />
+    <Content Include="assets\plugins\dataTables\dataTables.bootstrap.js" />
+    <Content Include="assets\plugins\dataTables\jquery.dataTables.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="assets\plugins\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Include="assets\plugins\fonts\glyphicons-halflings-regular-3.html" />
+    <Content Include="assets\plugins\fonts\glyphicons-halflings-regular-4.html" />
+    <Content Include="assets\plugins\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="assets\plugins\fonts\glyphicons-halflings-regulard41d.html" />
+    <Content Include="assets\plugins\images\sort_asc.html" />
+    <Content Include="assets\plugins\images\sort_asc_disabled.html" />
+    <Content Include="assets\plugins\images\sort_both.html" />
+    <Content Include="assets\plugins\images\sort_desc.html" />
+    <Content Include="assets\plugins\images\sort_desc_disabled.html" />
+    <Content Include="assets\plugins\jquery-1.10.2.js" />
+    <Content Include="assets\plugins\metisMenu\jquery.metisMenu.js" />
+    <Content Include="assets\plugins\morris\morris-0.4.3.min.css" />
+    <Content Include="assets\plugins\morris\morris.js" />
+    <Content Include="assets\plugins\morris\raphael-2.1.0.min.js" />
+    <Content Include="assets\plugins\pace\pace-theme-big-counter.css" />
+    <Content Include="assets\plugins\pace\pace.js" />
+    <Content Include="assets\plugins\social-buttons\social-buttons.css" />
+    <Content Include="assets\plugins\timeline\timeline.css" />
+    <Content Include="assets\scripts\dashboard-demo.js" />
+    <Content Include="assets\scripts\flot-demo.js" />
+    <Content Include="assets\scripts\morris-demo.js" />
+    <Content Include="assets\scripts\siminta.js" />
+    <Content Include="assets_web\css\animate.min.css" />
+    <Content Include="assets_web\css\bootstrap.css" />
+    <Content Include="assets_web\css\chocolat.css" />
+    <Content Include="assets_web\css\component.css" />
+    <Content Include="assets_web\css\style.css" />
+    <Content Include="assets_web\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets_web\images\1.jpg" />
+    <Content Include="assets_web\images\1.png" />
+    <Content Include="assets_web\images\10.jpg" />
+    <Content Include="assets_web\images\11.jpg" />
+    <Content Include="assets_web\images\12.jpg" />
+    <Content Include="assets_web\images\13.jpg" />
+    <Content Include="assets_web\images\14.jpg" />
+    <Content Include="assets_web\images\15.jpg" />
+    <Content Include="assets_web\images\17.jpg" />
+    <Content Include="assets_web\images\19.jpg" />
+    <Content Include="assets_web\images\2.jpg" />
+    <Content Include="assets_web\images\2.png" />
+    <Content Include="assets_web\images\20.jpg" />
+    <Content Include="assets_web\images\3.jpg" />
+    <Content Include="assets_web\images\3.png" />
+    <Content Include="assets_web\images\4.jpg" />
+    <Content Include="assets_web\images\4.png" />
+    <Content Include="assets_web\images\5.jpg" />
+    <Content Include="assets_web\images\5.png" />
+    <Content Include="assets_web\images\6.jpg" />
+    <Content Include="assets_web\images\7.jpg" />
+    <Content Include="assets_web\images\8.jpg" />
+    <Content Include="assets_web\images\9.jpg" />
+    <Content Include="assets_web\images\arrow.png" />
+    <Content Include="assets_web\images\close.png" />
+    <Content Include="assets_web\images\cross.png" />
+    <Content Include="assets_web\images\img-sp.png" />
+    <Content Include="assets_web\images\left.png" />
+    <Content Include="assets_web\images\menu.png" />
+    <Content Include="assets_web\images\right.png" />
+    <Content Include="assets_web\js\bootstrap.js" />
+    <Content Include="assets_web\js\classie.js" />
+    <Content Include="assets_web\js\easing.js" />
+    <Content Include="assets_web\js\jquery-1.11.1.min.js" />
+    <Content Include="assets_web\js\jquery.chocolat.js" />
+    <Content Include="assets_web\js\jquery.flexisel.js" />
+    <Content Include="assets_web\js\main.js" />
+    <Content Include="assets_web\js\move-top.js" />
+    <Content Include="assets_web\js\wow.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -216,6 +363,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Diferenciais.txt" />
     <Content Include="Global.asax" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -230,6 +378,31 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfontba72.eot" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfontba72.ttf" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfontba72.woff" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <EmbeddedResource Include="App_GlobalResources\Global.pt.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Global.pt.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="App_GlobalResources\User.pt.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>User.pt.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="assets_web\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets_web\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets_web\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets_web\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="App_GlobalResources\Web.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Web.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Web.pt.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Web.pt.designer.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -246,6 +419,110 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <None Include="Scripts\_references.js" />
+    <Content Include="template\assets\css\main-style.css" />
+    <Content Include="template\assets\css\style.css" />
+    <Content Include="template\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="template\assets\font-awesome\fonts\fontawesome-webfontba72.svg" />
+    <Content Include="template\assets\img\logo.png" />
+    <Content Include="template\assets\img\user.jpg" />
+    <Content Include="template\assets\plugins\bootstrap\bootstrap.css" />
+    <Content Include="template\assets\plugins\bootstrap\bootstrap.min.js" />
+    <Content Include="template\assets\plugins\dataTables\dataTables.bootstrap.css" />
+    <Content Include="template\assets\plugins\dataTables\dataTables.bootstrap.js" />
+    <Content Include="template\assets\plugins\dataTables\jquery.dataTables.js" />
+    <Content Include="template\assets\plugins\flot\jquery.flot.js" />
+    <Content Include="template\assets\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="template\assets\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="template\assets\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="template\assets\plugins\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Include="template\assets\plugins\fonts\glyphicons-halflings-regular-3.html" />
+    <Content Include="template\assets\plugins\fonts\glyphicons-halflings-regular-4.html" />
+    <Content Include="template\assets\plugins\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="template\assets\plugins\fonts\glyphicons-halflings-regulard41d.html" />
+    <Content Include="template\assets\plugins\images\sort_asc.html" />
+    <Content Include="template\assets\plugins\images\sort_asc_disabled.html" />
+    <Content Include="template\assets\plugins\images\sort_both.html" />
+    <Content Include="template\assets\plugins\images\sort_desc.html" />
+    <Content Include="template\assets\plugins\images\sort_desc_disabled.html" />
+    <Content Include="template\assets\plugins\jquery-1.10.2.js" />
+    <Content Include="template\assets\plugins\metisMenu\jquery.metisMenu.js" />
+    <Content Include="template\assets\plugins\morris\morris-0.4.3.min.css" />
+    <Content Include="template\assets\plugins\morris\morris.js" />
+    <Content Include="template\assets\plugins\morris\raphael-2.1.0.min.js" />
+    <Content Include="template\assets\plugins\pace\pace-theme-big-counter.css" />
+    <Content Include="template\assets\plugins\pace\pace.js" />
+    <Content Include="template\assets\plugins\social-buttons\social-buttons.css" />
+    <Content Include="template\assets\plugins\timeline\timeline.css" />
+    <Content Include="template\assets\scripts\dashboard-demo.js" />
+    <Content Include="template\assets\scripts\flot-demo.js" />
+    <Content Include="template\assets\scripts\morris-demo.js" />
+    <Content Include="template\assets\scripts\siminta.js" />
+    <Content Include="template\blank.html" />
+    <Content Include="template\buttons.html" />
+    <Content Include="template\flot.html" />
+    <Content Include="template\forms.html" />
+    <Content Include="template\grid.html" />
+    <Content Include="template\index.html" />
+    <Content Include="template\login.html" />
+    <Content Include="template\morris.html" />
+    <Content Include="template\notifications.html" />
+    <Content Include="template\panels-wells.html" />
+    <Content Include="template\tables.html" />
+    <Content Include="template\timeline.html" />
+    <Content Include="template\typography.html" />
+    <Content Include="template_web\about.html" />
+    <Content Include="template_web\contact.html" />
+    <Content Include="template_web\css\animate.min.css" />
+    <Content Include="template_web\css\bootstrap.css" />
+    <Content Include="template_web\css\chocolat.css" />
+    <Content Include="template_web\css\component.css" />
+    <Content Include="template_web\css\style.css" />
+    <Content Include="template_web\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="template_web\gallery.html" />
+    <Content Include="template_web\images\1.jpg" />
+    <Content Include="template_web\images\1.png" />
+    <Content Include="template_web\images\10.jpg" />
+    <Content Include="template_web\images\11.jpg" />
+    <Content Include="template_web\images\12.jpg" />
+    <Content Include="template_web\images\13.jpg" />
+    <Content Include="template_web\images\14.jpg" />
+    <Content Include="template_web\images\15.jpg" />
+    <Content Include="template_web\images\17.jpg" />
+    <Content Include="template_web\images\19.jpg" />
+    <Content Include="template_web\images\2.jpg" />
+    <Content Include="template_web\images\2.png" />
+    <Content Include="template_web\images\20.jpg" />
+    <Content Include="template_web\images\3.jpg" />
+    <Content Include="template_web\images\3.png" />
+    <Content Include="template_web\images\4.jpg" />
+    <Content Include="template_web\images\4.png" />
+    <Content Include="template_web\images\5.jpg" />
+    <Content Include="template_web\images\5.png" />
+    <Content Include="template_web\images\6.jpg" />
+    <Content Include="template_web\images\7.jpg" />
+    <Content Include="template_web\images\8.jpg" />
+    <Content Include="template_web\images\9.jpg" />
+    <Content Include="template_web\images\arrow.png" />
+    <Content Include="template_web\images\close.png" />
+    <Content Include="template_web\images\cross.png" />
+    <Content Include="template_web\images\img-sp.png" />
+    <Content Include="template_web\images\left.png" />
+    <Content Include="template_web\images\menu.png" />
+    <Content Include="template_web\images\right.png" />
+    <Content Include="template_web\index.html" />
+    <Content Include="template_web\js\bootstrap.js" />
+    <Content Include="template_web\js\classie.js" />
+    <Content Include="template_web\js\easing.js" />
+    <Content Include="template_web\js\jquery-1.11.1.min.js" />
+    <Content Include="template_web\js\jquery.chocolat.js" />
+    <Content Include="template_web\js\jquery.flexisel.js" />
+    <Content Include="template_web\js\main.js" />
+    <Content Include="template_web\js\move-top.js" />
+    <Content Include="template_web\js\wow.min.js" />
+    <Content Include="template_web\services.html" />
+    <Content Include="template_web\shortcodes.html" />
+    <Content Include="template_web\single.html" />
+    <Content Include="template_web\w3layouts-License.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -257,6 +534,21 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Pessoa\_EditOrCreate.cshtml" />
+    <Content Include="Views\Authentication\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\New.cshtml" />
+    <Content Include="template\assets\font-awesome\fonts\fontawesome-webfontba72.eot" />
+    <Content Include="template\assets\font-awesome\fonts\fontawesome-webfontba72.ttf" />
+    <Content Include="template\assets\font-awesome\fonts\fontawesome-webfontba72.woff" />
+    <Content Include="template\assets\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Views\User\_Form.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="template_web\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="template_web\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="template_web\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="template_web\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -265,9 +557,13 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Application\Application.csproj">
+    <ProjectReference Include="..\Application\ApplicationTravelMN.csproj">
       <Project>{5667e55f-76f0-409c-b235-b2e610854dad}</Project>
-      <Name>Application</Name>
+      <Name>ApplicationTravelMN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InterfacesTravelMN\InterfacesTravelMN.csproj">
+      <Project>{a7d6caa9-aa2b-4946-8cb4-c072013e4a35}</Project>
+      <Name>InterfacesTravelMN</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{3284801b-e89d-4ca7-b72e-11149bc02a4b}</Project>
@@ -298,6 +594,30 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Login.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Login.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Login.pt.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Login.pt.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\User.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>User.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Global.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Global.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
