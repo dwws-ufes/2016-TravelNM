@@ -46,10 +46,12 @@
                                         <td>@city.Id</td>
                                         <td>@city.Name</td>
                                         <td>@city.State</td>
-                                        <td class="center"><button>x</button></td>
+                                        <td class="center">
+                                            <a href="@Url.Action("Edit", "City", new { id = city.Id })"><i class="fa fa-edit fa-fw"></i></a>
+                                            <a data-ajax="true" data-ajax-method="POST" data-ajax-success="onSuccessDelete" href="@Url.Action("Delete", "City", new { id = city.Id })" data-ajax-confirm="@Resources.Global.ConfirmRemove"><i class="fa fa-trash-o fa-fw"></i></a>
+                                        </td>
                                     </tr>
                                 }
-
                             </tbody>
                         </table>
                     </div>
@@ -75,6 +77,16 @@
             });
         });
 
+        var nb;
+        function onSuccessDelete(result) {
+            if (result == "ok") {
+                alert('@Resources.Global.SuccessRemove')
+            } else {
+                alert('@Resources.Global.FailRemove')
+            }
+
+            window.location.reload();
+        }
 
     </script>
 }

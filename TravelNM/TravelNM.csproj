@@ -168,6 +168,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>City.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\City.pt1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>City.pt.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Global.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -219,17 +224,14 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\CidadeController..cs" />
-    <Compile Include="Controllers\EstadoController.cs" />
+    <Compile Include="Controllers\CityController..cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PessoaController.cs" />
     <Compile Include="Controllers\TravelPackageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CultureHelper.cs" />
-    <Compile Include="Models\PessoaView.cs" />
     <Compile Include="Models\TravelPackageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -397,6 +399,10 @@
     <Content Include="App_GlobalResources\City.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>City.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\City.pt.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>City.pt1.designer.cs</LastGenOutput>
     </Content>
     <EmbeddedResource Include="App_GlobalResources\Global.pt.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -571,6 +577,10 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\TravelPackage\Index.cshtml" />
+    <Content Include="Views\City\Index.cshtml" />
+    <Content Include="Views\City\New.cshtml" />
+    <Content Include="Views\City\_Form.cshtml" />
+    <Content Include="Views\City\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

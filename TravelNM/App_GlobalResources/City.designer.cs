@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EnterYourInformationBelow.
+        ///   Looks up a localized string similar to Enter YourInformation Below.
         /// </summary>
         internal static string EnterYourInformationBelow {
             get {
