@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InterfacesTravelMN;
+using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,8 +11,11 @@ namespace TravelNM.Controllers
     [AllowAnonymous]
     public class HomeController : BaseController
     {
-        //
-        // GET: /Home/
+        private IMaintenance<TravelPackage> _maintenance;
+        public HomeController(IMaintenance<TravelPackage> maintenance)
+        {
+            this._maintenance = maintenance;
+        }
 
         public ActionResult Index()
         {
@@ -20,6 +25,13 @@ namespace TravelNM.Controllers
         public ActionResult Admin()
         {
             return RedirectToActionPermanent("Index", "Admin");
+        }
+
+        public ActionResult SearchPackage(string term)
+        {
+            var items = this._maintenance.Search(new [] { term }).Select(x => (x.CityOrigin.Name + " x " + x.CityDestination.Name));
+
+            return Json(items, JsonRequestBehavior.AllowGet);
         }
     }
 }

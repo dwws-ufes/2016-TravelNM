@@ -24,6 +24,7 @@
     <!-- //for-mobile-apps -->
     <link href="~/assets_web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <link href="~/assets_web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/themes/base/jquery.ui.autocomplete.css" rel="stylesheet" />
     <!-- js -->
     <script src="~/assets_web/js/jquery-1.11.1.min.js"></script>
     <!-- //js -->
@@ -39,6 +40,8 @@
     <!-- start-smoth-scrolling -->
     <script type="text/javascript" src="~/assets_web/js/move-top.js"></script>
     <script type="text/javascript" src="~/assets_web/js/easing.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){
@@ -56,8 +59,9 @@
             <div class="header">
                 <div class="header-left animated wow bounceInLeft" data-wow-delay="800ms">
                     <form>
-                        <input type="text" value="@Resources.Web.SearchHere" onfocus="this.value = '';" onblur="if (this.value == '') { this.value = '@Resources.Web.SearchHere'; }">
+                        <input type="text" value="@Resources.Web.SearchHere" id="search_package" data-autocomplete-url="@Url.Action("SearchPackage")" onfocus="this.value = '';" onblur="if (this.value == '') { this.value = '@Resources.Web.SearchHere'; }">
                         <input type="submit" value="">
+
                         <div class="clearfix"> </div>
                     </form>
                 </div>
@@ -137,6 +141,13 @@
 
             $().UItoTop({ easingType: 'easeOutQuart' });
 
+            $('*[data-autocomplete-url]').each(function () { 
+                $(this).autocomplete({ 
+                    source: $(this).data("autocomplete-url") 
+                });
+            });
+
+            
         });
     </script>
     <!-- //here ends scrolling icon -->

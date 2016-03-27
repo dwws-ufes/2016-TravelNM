@@ -17,6 +17,7 @@ namespace Persistence
         public DbSet<Cidade> Cidade { get; set; }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<TravelPackage> TravelPackages { get; set; }
 
         public TravelMNContext()
         {

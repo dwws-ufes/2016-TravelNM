@@ -163,6 +163,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\City.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>City.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Global.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -182,6 +187,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\TravelPackage.designer.cs">
+      <DependentUpon>TravelPackage.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="App_GlobalResources\User.pt.designer.cs">
       <DependentUpon>User.pt.resx</DependentUpon>
@@ -213,12 +223,14 @@
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
+    <Compile Include="Controllers\TravelPackageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Models\PessoaView.cs" />
+    <Compile Include="Models\TravelPackageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -382,6 +394,10 @@
     <Content Include="assets\font-awesome\fonts\fontawesome-webfontba72.ttf" />
     <Content Include="assets\font-awesome\fonts\fontawesome-webfontba72.woff" />
     <Content Include="assets\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="App_GlobalResources\City.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>City.Designer.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="App_GlobalResources\Global.pt.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Global.pt.Designer.cs</LastGenOutput>
@@ -402,6 +418,10 @@
     <Content Include="App_GlobalResources\Web.pt.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Web.pt.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\TravelPackage.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>TravelPackage.designer.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -550,6 +570,7 @@
     <Content Include="template_web\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\TravelPackage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

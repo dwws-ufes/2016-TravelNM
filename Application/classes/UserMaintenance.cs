@@ -39,5 +39,11 @@ namespace ApplicationTravelMN.classes
             context.Users.Remove(this.Get(t.Id));
             context.SaveChanges();
         }
+
+
+        public List<User> Search(string[] args)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
