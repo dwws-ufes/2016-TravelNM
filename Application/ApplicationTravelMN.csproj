@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="classes\AuthenticationService.cs" />
     <Compile Include="classes\CityMaintenance.cs" />
+    <Compile Include="classes\TravelPackageMaintenance.cs" />
     <Compile Include="classes\UserMaintenance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

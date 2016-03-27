@@ -68,6 +68,7 @@ namespace TravelNM.App_Start
             kernel.Bind<IAuthentication>().To<AuthenticationService>();
             kernel.Bind<IMaintenance<User>>().To<UserMaintenance>();
             kernel.Bind<IMaintenance<City>>().To<CityMaintenance>();
+            kernel.Bind<IMaintenance<TravelPackage>>().To<TravelPackageMaintenance>();
         }        
     }
 }
