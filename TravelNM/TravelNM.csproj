@@ -163,10 +163,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_GlobalResources\City.designer.cs">
-      <DependentUpon>City.resx</DependentUpon>
+    <Compile Include="App_GlobalResources\City.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>City.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\Global.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -188,8 +188,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\City.pt.designer.cs">
-      <DependentUpon>City.pt.resx</DependentUpon>
+    <Compile Include="App_GlobalResources\TravelPackage.designer.cs">
+      <DependentUpon>TravelPackage.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -219,13 +219,18 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\CityController..cs" />
+    <Compile Include="Controllers\CidadeController..cs" />
+    <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PessoaController.cs" />
+    <Compile Include="Controllers\TravelPackageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CultureHelper.cs" />
+    <Compile Include="Models\PessoaView.cs" />
+    <Compile Include="Models\TravelPackageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -391,7 +396,7 @@
     <Content Include="assets\font-awesome\fonts\fontawesome-webfontd41d.eot" />
     <Content Include="App_GlobalResources\City.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>City.designer.cs</LastGenOutput>
+      <LastGenOutput>City.Designer.cs</LastGenOutput>
     </Content>
     <EmbeddedResource Include="App_GlobalResources\Global.pt.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -414,9 +419,9 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Web.pt.designer.cs</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\City.pt.resx">
+    <Content Include="App_GlobalResources\TravelPackage.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>City.pt.designer.cs</LastGenOutput>
+      <LastGenOutput>TravelPackage.designer.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -552,9 +557,7 @@
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\New.cshtml">
-      <BrowseToURL>~/User/New</BrowseToURL>
-    </Content>
+    <Content Include="Views\User\New.cshtml" />
     <Content Include="template\assets\font-awesome\fonts\fontawesome-webfontba72.eot" />
     <Content Include="template\assets\font-awesome\fonts\fontawesome-webfontba72.ttf" />
     <Content Include="template\assets\font-awesome\fonts\fontawesome-webfontba72.woff" />
@@ -566,13 +569,11 @@
     <Content Include="template_web\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="template_web\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\City\_Form.cshtml" />
-    <Content Include="Views\City\Index.cshtml" />
-    <Content Include="Views\City\New.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\TravelPackage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -10,5 +10,8 @@ namespace InterfacesTravelMN
         void Save(T t);
         T Get(int id);
         List<T> GetAll();
+        void Update(T t);
+        void Delete(T t);
+        List<T> Search(string[] args);
     }
 }

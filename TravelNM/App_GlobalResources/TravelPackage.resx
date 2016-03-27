@@ -117,13 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DiscoverTheMostBeautifulPlaces" xml:space="preserve">
-    <value>Descubra os lugares mais bonitos</value>
+  <data name="CityDestination" xml:space="preserve">
+    <value>Destination</value>
   </data>
-  <data name="SearchHere" xml:space="preserve">
-    <value>Digite o seu destino...</value>
+  <data name="CityOrigin" xml:space="preserve">
+    <value>Origin</value>
   </data>
-  <data name="WhereToGoThisSummer" xml:space="preserve">
-    <value>Para onde ir neste verão?</value>
+  <data name="New" xml:space="preserve">
+    <value>New Package</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Packages</value>
+  </data>
+  <data name="Priece" xml:space="preserve">
+    <value>Priece</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Travel Packages</value>
   </data>
 </root>
