@@ -62,9 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\AuthenticationService.cs" />
-    <Compile Include="antigos\ManutencaoCidade.cs" />
-    <Compile Include="antigos\ManutencaoEstado.cs" />
-    <Compile Include="antigos\ManutencaoPessoa.cs" />
+    <Compile Include="classes\CityMaintenance.cs" />
     <Compile Include="classes\UserMaintenance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

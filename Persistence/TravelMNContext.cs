@@ -10,11 +10,7 @@ namespace Persistence
 {
     public class TravelMNContext : DbContext
     {
-        public DbSet<Pessoa> Pessoa { get; set; }
-
-        public DbSet<Estado> Estado { get; set; }
-
-        public DbSet<Cidade> Cidade { get; set; }
+        public DbSet<City> City { get; set; }
 
         public DbSet<User> Users { get; set; }
 
