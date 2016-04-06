@@ -14,12 +14,14 @@ namespace ApplicationTravelMN.classes
         TravelMNContext context = new TravelMNContext();
         public void Save(TravelPackage t)
         {
-            throw new NotImplementedException();
+            context.TravelPackages.Attach(t);
+            context.TravelPackages.Add(t);
+            context.SaveChanges();
         }
 
         public TravelPackage Get(int id)
         {
-            throw new NotImplementedException();
+            return context.TravelPackages.Include(o => o.CityOrigin).Include(d => d.CityDestination).Where(item => item.Id == id).FirstOrDefault();
         }
 
         public List<TravelPackage> GetAll()
@@ -29,12 +31,14 @@ namespace ApplicationTravelMN.classes
 
         public void Update(TravelPackage t)
         {
-            throw new NotImplementedException();
+            context.Entry(t).State = EntityState.Modified;
+            context.SaveChanges();
         }
 
         public void Delete(TravelPackage t)
         {
-            throw new NotImplementedException();
+            context.TravelPackages.Remove(this.Get(t.Id));
+            context.SaveChanges();
         }
 
         public List<TravelPackage> Search(string[] args)

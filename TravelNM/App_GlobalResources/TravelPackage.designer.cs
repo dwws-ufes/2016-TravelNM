@@ -79,6 +79,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Package.
+        /// </summary>
+        internal static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Your Information Below.
+        /// </summary>
+        internal static string EnterYourInformationBelow {
+            get {
+                return ResourceManager.GetString("EnterYourInformationBelow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Package.
         /// </summary>
         internal static string New {
@@ -106,7 +133,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Travel Packages.
+        ///   Looks up a localized string similar to Travel Package.
         /// </summary>
         internal static string Title {
             get {
