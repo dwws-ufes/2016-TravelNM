@@ -56,7 +56,9 @@
     <Compile Include="City.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TravelPackageBuy.cs" />
     <Compile Include="TravelPackage.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

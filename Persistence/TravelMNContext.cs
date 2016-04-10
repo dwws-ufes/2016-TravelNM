@@ -16,6 +16,10 @@ namespace Persistence
 
         public DbSet<TravelPackage> TravelPackages { get; set; }
 
+        public DbSet<Customer> Customers { get; set; }
+
+        public DbSet<TravelPackageBuy> TravelPackageBuys { get; set; }
+
         public TravelMNContext()
         {
             Database.SetInitializer<TravelMNContext>(null);

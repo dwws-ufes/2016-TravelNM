@@ -14,30 +14,45 @@ namespace TravelNM.Controllers
     public class AuthenticationController : BaseController
     {
         private IAuthentication _authentication;
+        private IMaintenance<Customer> _maintenance;
 
-        public AuthenticationController(IAuthentication authentication)
+        public AuthenticationController(IAuthentication authentication, IMaintenance<Customer> maintenance)
         {
             this._authentication = authentication;
+            this._maintenance = maintenance;
         }
 
         public ActionResult Login()
         {
             return View();
         }
-
         
         [HttpPost]
-        public ActionResult Login(User user)
+        public ActionResult Login(User user, Customer customer, int? Id, Methods methods)
         {
-            if (this._authentication.Login(user) ==  null)
+            if (Id == 1)
             {
-                throw new Exception("Falha no login");
+                customer.Password = methods.GenHashSalt(customer.Password, _maintenance.Search(new[] { customer.Email }).ToList().First().Salt);
+
+                if (this._authentication.LoginCustomer(customer) == null)
+                    throw new Exception("Falha no login");
+                else
+                {
+                    FormsAuthentication.SetAuthCookie(customer.Email, false);
+                    Session["IdCustomer"] = _maintenance.Search(new[] { customer.Email }).ToList().First().Id.ToString();
+                    return RedirectToAction("Index", "AdminCustomer");
+                }
             }
             else
             {
-                FormsAuthentication.SetAuthCookie(user.Email, false);
-                return RedirectToAction("Index", "Admin");
-            }
+                if (this._authentication.Login(user) == null)
+                    throw new Exception("Falha no login");
+                else
+                {
+                    FormsAuthentication.SetAuthCookie(user.Email, false);
+                    return RedirectToAction("Index", "Admin");
+                }
+            }        
         }
 
         public ActionResult SetCulture(string culture)

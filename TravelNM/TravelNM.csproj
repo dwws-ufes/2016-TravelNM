@@ -173,6 +173,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>City.pt.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Customer.designer.cs">
+      <DependentUpon>Customer.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\Global.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +198,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\TravelPackageBuy.designer.cs">
+      <DependentUpon>TravelPackageBuy.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\TravelPackageBuy.pt.designer.cs">
+      <DependentUpon>TravelPackageBuy.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\TravelPackage.pt.designer.cs">
       <DependentUpon>TravelPackage.pt.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -200,6 +215,11 @@
     </Compile>
     <Compile Include="App_GlobalResources\TravelPackage.designer.cs">
       <DependentUpon>TravelPackage.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Customer.pt.designer.cs">
+      <DependentUpon>Customer.pt.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -226,17 +246,24 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\LocalizationAttribute.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Controllers\AdminCustomerController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CityController..cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\TravelPackageBuyController.cs" />
     <Compile Include="Controllers\TravelPackageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CultureHelper.cs" />
+    <Compile Include="Methods.cs" />
+    <Compile Include="Models\CustomerView.cs" />
+    <Compile Include="Models\TravelPackageBuyView.cs" />
     <Compile Include="Models\TravelPackageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -409,6 +436,10 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>City.pt1.designer.cs</LastGenOutput>
     </Content>
+    <Content Include="App_GlobalResources\Customer.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Customer.designer.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="App_GlobalResources\Global.pt.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Global.pt.Designer.cs</LastGenOutput>
@@ -437,6 +468,18 @@
     <Content Include="App_GlobalResources\TravelPackage.pt.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>TravelPackage.pt.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Customer.pt.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Customer.pt.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\TravelPackageBuy.pt.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>TravelPackageBuy.pt.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\TravelPackageBuy.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>TravelPackageBuy.designer.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -575,7 +618,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Pessoa\_EditOrCreate.cshtml" />
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
@@ -600,6 +642,17 @@
     <Content Include="Views\TravelPackage\_Form.cshtml" />
     <Content Include="Views\TravelPackage\Edit.cshtml" />
     <Content Include="Views\TravelPackage\New.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\New.cshtml" />
+    <Content Include="Views\Customer\_Form.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Register\_Form.cshtml" />
+    <Content Include="Views\Register\New.cshtml" />
+    <Content Include="Views\Shared\_LayoutRegister.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdminCustomer.cshtml" />
+    <Content Include="Views\AdminCustomer\Index.cshtml" />
+    <Content Include="Views\TravelPackageBuy\Index.cshtml" />
+    <Content Include="Views\Register\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -625,21 +678,6 @@
     <Content Include="Banco\TravelMN.sqlite">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Pessoa\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Pessoa\Edit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Pessoa\Delete.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Pessoa\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Pessoa\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Error.cshtml" />
