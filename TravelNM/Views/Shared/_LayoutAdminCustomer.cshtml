@@ -77,11 +77,14 @@
                                 <a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
                             </li>*@
                         <li class="divider"></li>
-                        <li>
-                            <a href="@Url.Action("Logout", "Authentication")"><i class="fa fa-sign-out fa-fw"></i>@Resources.User.Logout</a>
+                        <li class="">
+                            <a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard fa-fw"></i> @Resources.Global.Dashboard</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("Index", "City")"><i class="fa fa-users fa-fw"></i> @Resources.City.Cities</a>
+                            <a href="@Url.Action("Edit", "Register")"><i class="fa fa-user fa-fw"></i> @Resources.Customer.Profile</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "TravelPackageBuy")"><i class="fa fa-files-o fa-fw"></i> @Resources.TravelPackageBuy.BuyPackages</a>
                         </li>
                     </ul>
                     <!-- end dropdown-user -->
@@ -107,7 +110,7 @@
                         <a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard fa-fw"></i> @Resources.Global.Dashboard</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Edit", "Register")"><i class="fa fa-files-o fa-fw"></i> @Resources.Customer.Profile</a>
+                        <a href="@Url.Action("Edit", "Register")"><i class="fa fa-user fa-fw"></i> @Resources.Customer.Profile</a>
                     </li>
                     <li>
                         <a href="@Url.Action("Index", "TravelPackageBuy")"><i class="fa fa-files-o fa-fw"></i> @Resources.TravelPackageBuy.BuyPackages</a>

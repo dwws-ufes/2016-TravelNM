@@ -12,6 +12,6 @@ namespace Model
         public Customer Customer { get; set; }
         public TravelPackage TravelPackage { get; set; }
         public DateTime DateBuy { get; set; }
-        public string Status { get; set; }
+        public int Status { get; set; }
     }
 }

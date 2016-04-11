@@ -7,6 +7,6 @@ namespace TravelNM.Models
     {
         public TravelPackageBuy TravelPackageBuy { get; set; }
         public List<Customer> Customers { get; set; }
-        public List<TravelPackage> TravelPackages { get; set; }
+        public List<TravelPackage> TravelPackage { get; set; }
     }
 }

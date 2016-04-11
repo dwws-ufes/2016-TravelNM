@@ -14,7 +14,6 @@ namespace ApplicationTravelMN.classes
         TravelMNContext context = new TravelMNContext();
         public void Save(TravelPackageBuy t)
         {
-            context.TravelPackageBuys.Attach(t);
             context.TravelPackageBuys.Add(t);
             context.SaveChanges();
         }

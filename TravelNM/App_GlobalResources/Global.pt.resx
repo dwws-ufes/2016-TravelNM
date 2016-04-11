@@ -141,4 +141,13 @@
   <data name="Update" xml:space="preserve">
     <value>Atualizar</value>
   </data>
+  <data name="ConfirmBuyPackage" xml:space="preserve">
+    <value>Deseja comprar esse pacote?</value>
+  </data>
+  <data name="SuccessBuyPackage" xml:space="preserve">
+    <value>Pacote comprado com sucesso, veja seus pacotes no menu Principal</value>
+  </data>
+  <data name="FailedBuyPackage" xml:space="preserve">
+    <value>Falha ao comprar o pacote</value>
+  </data>
 </root>

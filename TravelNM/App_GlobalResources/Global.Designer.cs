@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you want to buy this package?.
+        /// </summary>
+        internal static string ConfirmBuyPackage {
+            get {
+                return ResourceManager.GetString("ConfirmBuyPackage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you wish to delete this?.
         /// </summary>
         internal static string ConfirmRemove {
@@ -106,11 +115,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failure to purchase the package.
+        /// </summary>
+        internal static string FailedBuyPackage {
+            get {
+                return ResourceManager.GetString("FailedBuyPackage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to delete record.
         /// </summary>
         internal static string FailRemove {
             get {
                 return ResourceManager.GetString("FailRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully purchased package, check your packages in the Main menu.
+        /// </summary>
+        internal static string SuccessBuyPackage {
+            get {
+                return ResourceManager.GetString("SuccessBuyPackage", resourceCulture);
             }
         }
         
