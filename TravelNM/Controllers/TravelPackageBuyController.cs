@@ -26,12 +26,14 @@ namespace TravelNM.Controllers
         public ActionResult Index()
         {
             return View(this._maintenance.GetAll());
-        }
+        }   
 
         [HttpPost]
         public JsonResult Create(TravelPackageBuy travelpackagebuy, int id)
         {           
-            travelpackagebuy.DateBuy = DateTime.Now;
+            travelpackagebuy.DateBuy = DateTime.Now;          
+            travelpackagebuy.Status = 1;
+
             travelpackagebuy.TravelPackage = _maintenance.Get(id);
             travelpackagebuy.Customer = _maintenancepackagecustomer.Get(int.Parse(Session["IdCustomer"].ToString()));
 
