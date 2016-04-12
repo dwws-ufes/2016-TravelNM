@@ -13,14 +13,11 @@ namespace TravelNM.Controllers
     {
         private IMaintenance<TravelPackage> _maintenance;
         private IMaintenance<TravelPackageBuy> _maintenancebuypackage;
-        private IMaintenance<Customer> _maintenancepackagecustomer;
 
-        public TravelPackageBuyController(IMaintenance<TravelPackage> maintenance, IMaintenance<TravelPackageBuy> maintenancebuypackage,
-            IMaintenance<Customer> maintenancepackagecustomer)
+        public TravelPackageBuyController(IMaintenance<TravelPackage> maintenance, IMaintenance<TravelPackageBuy> maintenancebuypackage)
         {
             this._maintenance = maintenance;
             this._maintenancebuypackage = maintenancebuypackage;
-            this._maintenancepackagecustomer = maintenancepackagecustomer;
         }
 
         public ActionResult Index()
@@ -34,8 +31,8 @@ namespace TravelNM.Controllers
             travelpackagebuy.DateBuy = DateTime.Now;          
             travelpackagebuy.Status = 1;
 
-            travelpackagebuy.TravelPackage = _maintenance.Get(id);
-            travelpackagebuy.Customer = _maintenancepackagecustomer.Get(int.Parse(Session["IdCustomer"].ToString()));
+            travelpackagebuy.Customer = new Customer() { Id = int.Parse(Session["IdCustomer"].ToString()) };
+            travelpackagebuy.TravelPackage = new TravelPackage() { Id = id };
 
             this._maintenancebuypackage.Save(travelpackagebuy);
 
