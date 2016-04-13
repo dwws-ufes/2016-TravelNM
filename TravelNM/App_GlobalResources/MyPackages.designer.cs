@@ -22,14 +22,14 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "12.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Global {
+    internal class MyPackages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Global() {
+        internal MyPackages() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Global", global::System.Reflection.Assembly.Load("App_GlobalResources"));
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.MyPackages", global::System.Reflection.Assembly.Load("App_GlobalResources"));
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,101 +61,92 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to buy this package?.
+        ///   Looks up a localized string similar to Destination.
         /// </summary>
-        internal static string ConfirmBuyPackage {
+        internal static string CityDestination {
             get {
-                return ResourceManager.GetString("ConfirmBuyPackage", resourceCulture);
+                return ResourceManager.GetString("CityDestination", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you wish to delete this?.
+        ///   Looks up a localized string similar to Origin.
         /// </summary>
-        internal static string ConfirmRemove {
+        internal static string CityOrigin {
             get {
-                return ResourceManager.GetString("ConfirmRemove", resourceCulture);
+                return ResourceManager.GetString("CityOrigin", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create.
+        ///   Looks up a localized string similar to Your Purchased Packages.
         /// </summary>
-        internal static string Create {
+        internal static string Instruction {
             get {
-                return ResourceManager.GetString("Create", resourceCulture);
+                return ResourceManager.GetString("Instruction", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dashboard.
+        ///   Looks up a localized string similar to My Travels Packages.
         /// </summary>
-        internal static string Dashboard {
+        internal static string MyPackagesTravel {
             get {
-                return ResourceManager.GetString("Dashboard", resourceCulture);
+                return ResourceManager.GetString("MyPackagesTravel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to //cdn.datatables.net/plug-ins/1.10.11/i18n/English.json.
+        ///   Looks up a localized string similar to Priece.
         /// </summary>
-        internal static string DATA_TABLE_JSON {
+        internal static string Priece {
             get {
-                return ResourceManager.GetString("DATA_TABLE_JSON", resourceCulture);
+                return ResourceManager.GetString("Priece", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit.
+        ///   Looks up a localized string similar to Status.
         /// </summary>
-        internal static string Edit {
+        internal static string Status {
             get {
-                return ResourceManager.GetString("Edit", resourceCulture);
+                return ResourceManager.GetString("Status", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failure to purchase the package.
+        ///   Looks up a localized string similar to Waiting Payment.
         /// </summary>
-        internal static string FailedBuyPackage {
+        internal static string Status1 {
             get {
-                return ResourceManager.GetString("FailedBuyPackage", resourceCulture);
+                return ResourceManager.GetString("Status1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to delete record.
+        ///   Looks up a localized string similar to Payment Made.
         /// </summary>
-        internal static string FailRemove {
+        internal static string Status2 {
             get {
-                return ResourceManager.GetString("FailRemove", resourceCulture);
+                return ResourceManager.GetString("Status2", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Successfully purchased package, check your packages in the My Packages menu.
+        ///   Looks up a localized string similar to Canceled.
         /// </summary>
-        internal static string SuccessBuyPackage {
+        internal static string Status3 {
             get {
-                return ResourceManager.GetString("SuccessBuyPackage", resourceCulture);
+                return ResourceManager.GetString("Status3", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Item successfully removed.
+        ///   Looks up a localized string similar to My Packages.
         /// </summary>
-        internal static string SuccessRemove {
+        internal static string Title {
             get {
-                return ResourceManager.GetString("SuccessRemove", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Update.
-        /// </summary>
-        internal static string Update {
-            get {
-                return ResourceManager.GetString("Update", resourceCulture);
+                return ResourceManager.GetString("Title", resourceCulture);
             }
         }
     }

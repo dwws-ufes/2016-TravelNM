@@ -47,5 +47,10 @@ namespace ApplicationTravelMN.classes
             var list = context.TravelPackages.Include(o => o.CityDestination).Include(o => o.CityOrigin).Where(item => item.CityDestination.Name.ToUpper().Contains(arg0)).ToList();
             return list;
         }
+
+        public List<TravelPackage> GetAllId(int Id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

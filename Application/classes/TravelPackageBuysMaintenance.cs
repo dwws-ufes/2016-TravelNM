@@ -21,24 +21,29 @@ namespace ApplicationTravelMN.classes
 
         public TravelPackageBuy Get(int id)
         {
-            return context.TravelPackageBuys.Include(t => t.TravelPackage).Include(c => c.Customer).Where(item => item.Id == id).FirstOrDefault();
+            return context.TravelPackageBuys.Include(t => t.TravelPackage).Include(c => c.Customer).Include(o => o.TravelPackage.CityOrigin).
+                Include(d => d.TravelPackage.CityDestination).Where(item => item.Id == id).FirstOrDefault();
+        }
+
+        public List<TravelPackageBuy> GetAllId(int Id)
+        {
+            return context.TravelPackageBuys.Include(t => t.TravelPackage).Include(c => c.Customer).Include(o => o.TravelPackage.CityOrigin).
+                Include(d => d.TravelPackage.CityDestination).Where(item => item.Customer.Id == Id).ToList();
         }
 
         public List<TravelPackageBuy> GetAll()
         {
-            return context.TravelPackageBuys.Include(t => t.TravelPackage).Include(c => c.Customer).ToList();
+            throw new NotImplementedException();
         }
 
         public void Update(TravelPackageBuy t)
         {
-            context.Entry(t).State = EntityState.Modified;
-            context.SaveChanges();
+            throw new NotImplementedException();
         }
 
         public void Delete(TravelPackageBuy t)
         {
-            context.TravelPackageBuys.Remove(this.Get(t.Id));
-            context.SaveChanges();
+            throw new NotImplementedException();
         }
 
         public List<TravelPackageBuy> Search(string[] args)

@@ -53,5 +53,10 @@ namespace ApplicationTravelMN.classes
             var list = context.Customers.Include(c => c.City).Where(item => item.Name.ToUpper().Contains(arg0) | item.Email.ToUpper().Equals(arg0)).ToList();
             return list;
         }
+
+        public List<Customer> GetAllId(int Id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

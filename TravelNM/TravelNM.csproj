@@ -198,6 +198,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\MyPackages.designer.cs">
+      <DependentUpon>MyPackages.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MyPackages.pt.designer.cs">
+      <DependentUpon>MyPackages.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\TravelPackageBuy.designer.cs">
       <DependentUpon>TravelPackageBuy.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -246,7 +256,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\LocalizationAttribute.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
-    <Compile Include="Controllers\AdminCustomerController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -254,6 +263,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\MyPackagesController.cs" />
     <Compile Include="Controllers\TravelPackageBuyController.cs" />
     <Compile Include="Controllers\TravelPackageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -481,6 +491,14 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>TravelPackageBuy.designer.cs</LastGenOutput>
     </Content>
+    <Content Include="App_GlobalResources\MyPackages.pt.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MyPackages.pt.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MyPackages.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MyPackages.designer.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -650,9 +668,9 @@
     <Content Include="Views\Register\New.cshtml" />
     <Content Include="Views\Shared\_LayoutRegister.cshtml" />
     <Content Include="Views\Shared\_LayoutAdminCustomer.cshtml" />
-    <Content Include="Views\AdminCustomer\Index.cshtml" />
     <Content Include="Views\TravelPackageBuy\Index.cshtml" />
     <Content Include="Views\Register\Edit.cshtml" />
+    <Content Include="Views\MyPackages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

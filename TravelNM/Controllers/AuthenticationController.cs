@@ -40,7 +40,7 @@ namespace TravelNM.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(customer.Email, false);
                     Session["IdCustomer"] = _maintenance.Search(new[] { customer.Email }).ToList().First().Id.ToString();
-                    return RedirectToAction("Index", "AdminCustomer");
+                    return RedirectToAction("Index", "TravelPackageBuy");
                 }
             }
             else

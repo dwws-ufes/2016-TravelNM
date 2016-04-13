@@ -44,5 +44,10 @@ namespace ApplicationTravelMN.classes
         {
             throw new NotImplementedException();
         }
+
+        public List<City> GetAllId(int Id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

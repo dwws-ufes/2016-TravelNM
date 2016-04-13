@@ -145,7 +145,7 @@
     <value>Do you want to buy this package?</value>
   </data>
   <data name="SuccessBuyPackage" xml:space="preserve">
-    <value>Successfully purchased package, check your packages in the Main menu</value>
+    <value>Successfully purchased package, check your packages in the My Packages menu</value>
   </data>
   <data name="FailedBuyPackage" xml:space="preserve">
     <value>Failure to purchase the package</value>

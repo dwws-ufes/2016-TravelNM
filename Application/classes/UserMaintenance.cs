@@ -45,5 +45,10 @@ namespace ApplicationTravelMN.classes
         {
             throw new NotImplementedException();
         }
+
+        public List<User> GetAllId(int Id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
