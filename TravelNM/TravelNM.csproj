@@ -198,13 +198,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\MyPackages.designer.cs">
-      <DependentUpon>MyPackages.resx</DependentUpon>
+    <Compile Include="App_GlobalResources\SoldPackage.designer.cs">
+      <DependentUpon>SoldPackage.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="App_GlobalResources\MyPackages.pt.designer.cs">
-      <DependentUpon>MyPackages.pt.resx</DependentUpon>
+    <Compile Include="App_GlobalResources\MyPackage.designer.cs">
+      <DependentUpon>MyPackage.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\SoldPackage.pt.designer.cs">
+      <DependentUpon>SoldPackage.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MyPackage.pt.designer.cs">
+      <DependentUpon>MyPackage.pt.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -260,10 +270,11 @@
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CityController..cs" />
+    <Compile Include="Controllers\SoldPackageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
-    <Compile Include="Controllers\MyPackagesController.cs" />
+    <Compile Include="Controllers\MyPackageController.cs" />
     <Compile Include="Controllers\TravelPackageBuyController.cs" />
     <Compile Include="Controllers\TravelPackageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -491,13 +502,21 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>TravelPackageBuy.designer.cs</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\MyPackages.pt.resx">
+    <Content Include="App_GlobalResources\MyPackage.pt.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>MyPackages.pt.designer.cs</LastGenOutput>
+      <LastGenOutput>MyPackage.pt.designer.cs</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\MyPackages.resx">
+    <Content Include="App_GlobalResources\MyPackage.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>MyPackages.designer.cs</LastGenOutput>
+      <LastGenOutput>MyPackage.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\SoldPackage.pt.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>SoldPackage.pt.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\SoldPackage.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>SoldPackage.designer.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -670,7 +689,8 @@
     <Content Include="Views\Shared\_LayoutAdminCustomer.cshtml" />
     <Content Include="Views\TravelPackageBuy\Index.cshtml" />
     <Content Include="Views\Register\Edit.cshtml" />
-    <Content Include="Views\MyPackages\Index.cshtml" />
+    <Content Include="Views\MyPackage\Index.cshtml" />
+    <Content Include="Views\SoldPackage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

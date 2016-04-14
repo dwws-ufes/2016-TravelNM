@@ -1,7 +1,7 @@
 ﻿@model List<Model.TravelPackageBuy>
 
 @{
-    ViewBag.Title = Resources.MyPackages.Title;
+    ViewBag.Title = Resources.MyPackage.Title;
     Layout = "~/Views/Shared/_LayoutAdminCustomer.cshtml";
 }
 
@@ -15,7 +15,7 @@
     <div class="row">
         <!--  page header -->
         <div class="col-lg-12">
-            <h1 class="page-header">@Resources.MyPackages.Title</h1>
+            <h1 class="page-header">@Resources.MyPackage.Title</h1>
         </div>
         <!-- end  page header -->
     </div>
@@ -24,7 +24,7 @@
             <!-- Advanced Tables -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>@Resources.MyPackages.Instruction</h3> 
+                    <h3>@Resources.MyPackage.Instruction</h3> 
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive table-striped">
@@ -32,10 +32,10 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>@Resources.MyPackages.CityOrigin</th>
-                                    <th>@Resources.MyPackages.CityDestination</th>
-                                    <th>@Resources.MyPackages.Priece</th>
-                                    <th>@Resources.MyPackages.Status</th>
+                                    <th>@Resources.MyPackage.CityOrigin</th>
+                                    <th>@Resources.MyPackage.CityDestination</th>
+                                    <th>@Resources.MyPackage.Priece</th>
+                                    <th>@Resources.MyPackage.Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,11 +49,11 @@
                                         <td class="center">
                                             @switch (travel.Status)
                                             {
-                                                case 1: @Resources.MyPackages.Status1
+                                                case 1: @Resources.MyPackage.Status1
                                                     break;
-                                                case 2: @Resources.MyPackages.Status2
+                                                case 2: @Resources.MyPackage.Status2
                                                     break;
-                                                case 3: @Resources.MyPackages.Status3
+                                                case 3: @Resources.MyPackage.Status3
                                                     break;
                                             }   
                                         </td>

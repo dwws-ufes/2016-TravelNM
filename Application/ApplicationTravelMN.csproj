@@ -64,7 +64,7 @@
     <Compile Include="classes\AuthenticationService.cs" />
     <Compile Include="classes\CityMaintenance.cs" />
     <Compile Include="classes\CustormeMaintenance.cs" />
-    <Compile Include="classes\TravelPackageBuysMaintenance.cs" />
+    <Compile Include="classes\TravelPackageBuyMaintenance.cs" />
     <Compile Include="classes\TravelPackageMaintenance.cs" />
     <Compile Include="classes\UserMaintenance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

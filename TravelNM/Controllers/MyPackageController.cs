@@ -9,11 +9,11 @@ using TravelNM.Models;
 
 namespace TravelNM.Controllers
 {
-    public class MyPackagesController : BaseController
+    public class MyPackageController : BaseController
     {
         private IMaintenance<TravelPackageBuy> _maintenance;
 
-        public MyPackagesController(IMaintenance<TravelPackageBuy> maintenance)
+        public MyPackageController(IMaintenance<TravelPackageBuy> maintenance)
         {
             this._maintenance = maintenance;
         }

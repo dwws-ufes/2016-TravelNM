@@ -22,14 +22,14 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "12.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class MyPackages {
+    internal class SoldPackage {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal MyPackages() {
+        internal SoldPackage() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.MyPackages", global::System.Reflection.Assembly.Load("App_GlobalResources"));
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.SoldPackage", global::System.Reflection.Assembly.Load("App_GlobalResources"));
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -79,20 +79,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your Purchased Packages.
+        ///   Looks up a localized string similar to Customer.
         /// </summary>
-        internal static string Instruction {
+        internal static string Customer {
             get {
-                return ResourceManager.GetString("Instruction", resourceCulture);
+                return ResourceManager.GetString("Customer", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My Travels Packages.
+        ///   Looks up a localized string similar to New Package Sale.
         /// </summary>
-        internal static string MyPackagesTravel {
+        internal static string New {
             get {
-                return ResourceManager.GetString("MyPackagesTravel", resourceCulture);
+                return ResourceManager.GetString("New", resourceCulture);
             }
         }
         
@@ -106,6 +106,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sold Packages.
+        /// </summary>
+        internal static string SoldPackages {
+            get {
+                return ResourceManager.GetString("SoldPackages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
         internal static string Status {
@@ -115,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Waiting Payment.
+        ///   Looks up a localized string similar to Waiting payment..
         /// </summary>
         internal static string Status1 {
             get {
@@ -142,7 +151,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My Packages.
+        ///   Looks up a localized string similar to Manage Sold Packages.
         /// </summary>
         internal static string Title {
             get {

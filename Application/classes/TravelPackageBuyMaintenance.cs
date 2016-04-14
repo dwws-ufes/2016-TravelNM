@@ -33,7 +33,8 @@ namespace ApplicationTravelMN.classes
 
         public List<TravelPackageBuy> GetAll()
         {
-            throw new NotImplementedException();
+            return context.TravelPackageBuys.Include(t => t.TravelPackage).Include(c => c.Customer).Include(o => o.TravelPackage.CityOrigin).
+                Include(d => d.TravelPackage.CityDestination).ToList();
         }
 
         public void Update(TravelPackageBuy t)
@@ -43,7 +44,8 @@ namespace ApplicationTravelMN.classes
 
         public void Delete(TravelPackageBuy t)
         {
-            throw new NotImplementedException();
+            context.TravelPackageBuys.Remove(this.Get(t.Id));
+            context.SaveChanges();
         }
 
         public List<TravelPackageBuy> Search(string[] args)
