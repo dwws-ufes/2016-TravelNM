@@ -64,7 +64,7 @@
                                         </td>
                                         <td class="center">
                                             <a href="@Url.Action("Edit", "TravelPackageBuy", new { id = travel.Id })"><i class="fa fa-edit fa-fw"></i></a>
-                                            <a data-ajax="true" data-ajax-method="POST" data-ajax-success="onSuccessDelete" href="@Url.Action("Delete", "TravelPackageBuy", 
+                                            <a data-ajax="true" data-ajax-method="POST" data-ajax-success="onSuccessDelete" href="@Url.Action("Delete", "SoldPackage", 
                                                 new { id = travel.Id })" data-ajax-confirm="@Resources.Global.ConfirmRemove"><i class="fa fa-trash-o fa-fw"></i></a>
                                         </td>
                                     </tr>
@@ -79,9 +79,33 @@
             <!--End Advanced Tables -->
         </div>
     </div>
-
-
-
 </div>
+
+@section scripts {
+    <!-- Page-Level Plugin Scripts-->
+    <script src="~/assets/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable({
+                "language": {
+                    "url": "@Resources.Global.DATA_TABLE_JSON"
+                }
+            });
+        });
+
+        var nb;
+        function onSuccessDelete(result) {
+            if (result == "ok") {
+                alert('@Resources.Global.SuccessRemove')
+            } else {
+                alert('@Resources.Global.FailRemove')
+            }
+
+            window.location.reload();
+        }
+
+    </script>
+}
 
 

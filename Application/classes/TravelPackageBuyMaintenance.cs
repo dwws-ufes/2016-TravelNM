@@ -51,7 +51,9 @@ namespace ApplicationTravelMN.classes
         public List<TravelPackageBuy> Search(string[] args)
         {
             string arg0 = args[0].ToUpper();
-            var list = context.TravelPackageBuys.Include(t => t.TravelPackage).Include(c => c.Customer).Where(item => item.TravelPackage.CityDestination.Name.ToUpper().Contains(arg0)).ToList();
+            var list = context.TravelPackageBuys.Include(t => t.TravelPackage).Include(c => c.Customer).
+                Where(item => item.TravelPackage.CityDestination.Name.ToUpper().Contains(arg0) |
+                    item.Customer.Name.ToUpper().Contains(arg0)).ToList();
             return list;
         }
     }
