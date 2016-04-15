@@ -52,4 +52,10 @@
             $("#Customer_DateBirth").mask("9999-99-99");
         });
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#Status").val("@Model.Customer.Status");
+        });
+    </script>
 }

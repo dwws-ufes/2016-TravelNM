@@ -59,6 +59,7 @@ namespace TravelNM.Controllers
             {
                 customerview.Customer.Salt = Crypto.GenerateSalt();
                 customerview.Customer.Password = methods.GenHashSalt(customerview.Customer.Password, customerview.Customer.Salt);
+                customerview.Customer.Status = int.Parse(Request.Form["Status"].ToString());
 
                 this._maintenance.Update(customerview.Customer);
                 return RedirectToAction("Index");   
@@ -101,6 +102,7 @@ namespace TravelNM.Controllers
                 {
                     customerview.Customer.Salt = Crypto.GenerateSalt();
                     customerview.Customer.Password = methods.GenHashSalt(customerview.Customer.Password, customerview.Customer.Salt);
+                    customerview.Customer.Status = int.Parse(Request.Form["Status"].ToString());
 
                     this._maintenance.Save(customerview.Customer);
                     return RedirectToAction("Index");

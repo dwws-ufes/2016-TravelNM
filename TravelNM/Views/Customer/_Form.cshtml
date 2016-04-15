@@ -43,6 +43,16 @@
 </div>
 
 <div class="form-group">
+    @Html.LabelFor(model => model.Customer.Status, Resources.Customer.Status)
+
+    <select id="Status" name="Status" required="required" class="form-control">
+        <option value="1">@Resources.Customer.Status1</option>
+        <option value="2">@Resources.Customer.Status2</option>
+        <option value="3">@Resources.Customer.Status3</option>
+    </select>
+</div>
+
+<div class="form-group">
     @Html.LabelFor(model => model.Customer.Email, Resources.Customer.Email)
     @Html.TextBoxFor(model => model.Customer.Email, new { @class = "form-control", @required = true,  @type = "email" })
 </div>

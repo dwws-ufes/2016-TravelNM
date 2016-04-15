@@ -36,7 +36,7 @@
                                     <th>Id</th>
                                     <th>@Resources.Customer.Name</th>
                                     <th>@Resources.Customer.City</th>
-                                    <th></th>
+                                    <th>-</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,7 +45,7 @@
                                     <tr>
                                         <td>@customer.Id</td>
                                         <td>@customer.Name</td>
-                                        <td>@customer.City.Name</td>
+                                        <td>@String.Concat(@customer.City.Name + "/ " + @customer.City.State) </td>
                                         <td class="center">
                                             <a href="@Url.Action("Edit", "Customer", new { id = customer.Id })"><i class="fa fa-edit fa-fw"></i></a>
                                             <a data-ajax="true" data-ajax-method="POST" data-ajax-success="onSuccessDelete" href="@Url.Action("Delete", "Customer", new { id = customer.Id })" data-ajax-confirm="@Resources.Global.ConfirmRemove"><i class="fa fa-trash-o fa-fw"></i></a>
