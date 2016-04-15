@@ -14,7 +14,7 @@
                         select new
                         {
                             Value = t.Id,
-                            Text = t.CityOrigin.Name + "/" + t.CityOrigin.State + " X " + t.CityDestination.Name + "/" + t.CityDestination.State + " - $ " + t.Priece
+                            Text = t.CityOrigin.Name + "/ " + t.CityOrigin.State + " X " + t.CityDestination.Name + "/ " + t.CityDestination.State + " - $ " + t.Priece
                         }), "Value", "Text"),
     new { @class = "form-control", @required = true })
 </div>

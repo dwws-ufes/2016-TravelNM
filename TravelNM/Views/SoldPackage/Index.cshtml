@@ -39,7 +39,7 @@
                                     <th>@Resources.SoldPackage.Customer</th>
                                     <th>@Resources.SoldPackage.Priece</th>
                                     <th>@Resources.SoldPackage.Status</th>
-                                    <th></th>
+                                    <th>-</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,8 +47,8 @@
                                 {
                                     <tr>
                                         <td>@travel.Id</td>
-                                        <td>@travel.TravelPackage.CityOrigin.Name</td>
-                                        <td>@travel.TravelPackage.CityDestination.Name</td>
+                                        <td>@String.Concat(@travel.TravelPackage.CityOrigin.Name + "/ " + @travel.TravelPackage.CityOrigin.State)</td>
+                                        <td>@String.Concat(@travel.TravelPackage.CityDestination.Name + "/ " + @travel.TravelPackage.CityDestination.State)</td>
                                         <td>@travel.Customer.Name</td>
                                         <td>@travel.TravelPackage.Priece</td>
                                         <td class="center">
