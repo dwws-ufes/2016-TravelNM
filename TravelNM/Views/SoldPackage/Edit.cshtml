@@ -1,7 +1,7 @@
-﻿@model Model.City
+﻿@model TravelNM.Models.TravelPackageBuyView
 
 @{
-    ViewBag.Title = Resources.City.Edit;
+    ViewBag.Title = Resources.SoldPackage.Edit;
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -13,7 +13,7 @@
     <div class="row">
         <!-- page header -->
         <div class="col-lg-12">
-            <h1 class="page-header">@Resources.City.Edit</h1>
+            <h1 class="page-header">@Resources.SoldPackage.Edit</h1>
         </div>
         <!--end page header -->
     </div>
@@ -22,14 +22,14 @@
             <!-- Form Elements -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    @Resources.City.EnterYourInformationBelow
+                    @Resources.SoldPackage.EnterYourInformationBelow
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            @using (Html.BeginForm("Update", "City", FormMethod.Post, new { @id = "form_city" }))
+                            @using (Html.BeginForm("Update", "SoldPackage", FormMethod.Post, new { @id = "form_soldpackage" }))
                             {
-                                @Html.HiddenFor(model => model.Id)
+                                @Html.HiddenFor(model => model.TravelPackageBuy.Id)
 
                                 @Html.Partial("_Form", Model);
                                 <button type="submit" class="btn btn-primary">@Resources.Global.Update</button>
@@ -47,7 +47,7 @@
 @section scripts {
     <script>
         $(document).ready(function () {
-            $("#State").val("@Model.State");
+            $("#Status").val("@Model.TravelPackageBuy.Status");
         });
     </script>
 }

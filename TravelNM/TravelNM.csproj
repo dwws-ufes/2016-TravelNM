@@ -691,6 +691,9 @@
     <Content Include="Views\Register\Edit.cshtml" />
     <Content Include="Views\MyPackage\Index.cshtml" />
     <Content Include="Views\SoldPackage\Index.cshtml" />
+    <Content Include="Views\SoldPackage\New.cshtml" />
+    <Content Include="Views\SoldPackage\_Form.cshtml" />
+    <Content Include="Views\SoldPackage\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

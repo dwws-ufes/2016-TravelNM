@@ -37,7 +37,7 @@
                                     <th>@Resources.TravelPackage.CityOrigin</th>
                                     <th>@Resources.TravelPackage.CityDestination</th>
                                     <th>@Resources.TravelPackage.Priece</th>
-                                    <th></th>
+                                    <th>-</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,8 +45,8 @@
                                 {
                                     <tr>
                                         <td>@travel.Id</td>
-                                        <td>@travel.CityOrigin.Name</td>
-                                        <td>@travel.CityDestination.Name</td>
+                                        <td>@string.Concat(@travel.CityOrigin.Name + "/ " + @travel.CityOrigin.State)</td>
+                                        <td>@string.Concat(@travel.CityDestination.Name + "/ " + @travel.CityDestination.State)</td>
                                         <td>@travel.Priece</td>
                                         <td class="center">
                                             <a href="@Url.Action("Edit", "TravelPackage", new { id = travel.Id })"><i class="fa fa-edit fa-fw"></i></a>

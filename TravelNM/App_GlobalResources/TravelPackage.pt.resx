@@ -130,7 +130,7 @@
     <value>Editar Pacote</value>
   </data>
   <data name="EnterYourInformationBelow" xml:space="preserve">
-    <value>Informe os dados abaixo</value>
+    <value>Informe os Dados Abaixo</value>
   </data>
   <data name="New" xml:space="preserve">
     <value>Novo Pacote</value>
@@ -140,6 +140,9 @@
   </data>
   <data name="Priece" xml:space="preserve">
     <value>Preço</value>
+  </data>
+  <data name="SameCities" xml:space="preserve">
+    <value>As cidades de origem e destino não podem ser iguais</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Pacores de Viagens</value>

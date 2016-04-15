@@ -24,7 +24,7 @@
             <!-- Advanced Tables -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="@Url.Action("New", "City")" class="btn btn-info" aria-label="Left Align">
+                    <a href="@Url.Action("New", "SoldPackage")" class="btn btn-info" aria-label="Left Align">
                         @Resources.SoldPackage.New
                     </a>
                 </div>
@@ -63,7 +63,7 @@
                                             }   
                                         </td>
                                         <td class="center">
-                                            <a href="@Url.Action("Edit", "TravelPackageBuy", new { id = travel.Id })"><i class="fa fa-edit fa-fw"></i></a>
+                                            <a href="@Url.Action("Edit", "SoldPackage", new { id = travel.Id })"><i class="fa fa-edit fa-fw"></i></a>
                                             <a data-ajax="true" data-ajax-method="POST" data-ajax-success="onSuccessDelete" href="@Url.Action("Delete", "SoldPackage", 
                                                 new { id = travel.Id })" data-ajax-confirm="@Resources.Global.ConfirmRemove"><i class="fa fa-trash-o fa-fw"></i></a>
                                         </td>

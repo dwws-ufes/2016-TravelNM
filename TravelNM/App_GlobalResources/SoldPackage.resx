@@ -126,6 +126,12 @@
   <data name="Customer" xml:space="preserve">
     <value>Customer</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit Sold Package</value>
+  </data>
+  <data name="EnterYourInformationBelow" xml:space="preserve">
+    <value>Enter Your Information Below</value>
+  </data>
   <data name="New" xml:space="preserve">
     <value>New Package Sale</value>
   </data>
@@ -139,7 +145,7 @@
     <value>Status</value>
   </data>
   <data name="Status1" xml:space="preserve">
-    <value>Waiting payment.</value>
+    <value>Waiting payment</value>
   </data>
   <data name="Status2" xml:space="preserve">
     <value>Payment Made</value>

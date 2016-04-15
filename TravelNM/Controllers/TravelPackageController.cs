@@ -52,9 +52,7 @@ namespace TravelNM.Controllers
             }
             else
             {
-                // Alter Lang inner Class.
-                MsgSameCities("Edit/" + Convert.ToString(travelpackageview.TravelPackage.Id));
-
+                Response.Write("<script>window.location = '" + "Edit/" + Convert.ToString(travelpackageview.TravelPackage.Id + "' </script>"));
                 return null;
             }
         }
@@ -77,21 +75,9 @@ namespace TravelNM.Controllers
             }
             else
             {
-                // Alter Lang inner Class.
-                MsgSameCities("New");
-
+                Response.Write("<script>window.location = '" + "New/" + "' </script>");
                 return null;
             }
-        }
-
-        public void MsgSameCities(string Url)
-        {
-            var culture = System.Globalization.CultureInfo.CurrentCulture;
-
-            if (culture.Name == "en-US")
-                Response.Write("<script> alert('The cities of origin and destination may not be the same.'); window.location = '" + Url + "' </script>");
-            else
-                Response.Write("<script> alert('As cidades de origem e destino não podem ser iguais.'); window.location =  '" + Url + "' </script>");
         }
     }
 }

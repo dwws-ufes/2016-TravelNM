@@ -133,6 +133,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The cities of origin and destination may not be the same.
+        /// </summary>
+        internal static string SameCities {
+            get {
+                return ResourceManager.GetString("SameCities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Travel Package.
         /// </summary>
         internal static string Title {

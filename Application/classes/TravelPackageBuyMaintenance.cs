@@ -39,7 +39,8 @@ namespace ApplicationTravelMN.classes
 
         public void Update(TravelPackageBuy t)
         {
-            throw new NotImplementedException();
+            context.Entry(t).State = EntityState.Modified;
+            context.SaveChanges();
         }
 
         public void Delete(TravelPackageBuy t)

@@ -88,6 +88,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Sold Package.
+        /// </summary>
+        internal static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Your Information Below.
+        /// </summary>
+        internal static string EnterYourInformationBelow {
+            get {
+                return ResourceManager.GetString("EnterYourInformationBelow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Package Sale.
         /// </summary>
         internal static string New {
@@ -124,7 +142,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Waiting payment..
+        ///   Looks up a localized string similar to Waiting payment.
         /// </summary>
         internal static string Status1 {
             get {

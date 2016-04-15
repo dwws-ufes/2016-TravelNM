@@ -31,6 +31,7 @@ namespace ApplicationTravelMN.classes
 
         public void Update(TravelPackage t)
         {
+            context.TravelPackages.Attach(t);
             context.Entry(t).State = EntityState.Modified;
             context.SaveChanges();
         }

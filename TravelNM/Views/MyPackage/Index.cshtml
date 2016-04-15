@@ -69,9 +69,32 @@
             <!--End Advanced Tables -->
         </div>
     </div>
-
-
-
 </div>
 
 
+@section scripts {
+    <!-- Page-Level Plugin Scripts-->
+    <script src="~/assets/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable({
+                "language": {
+                    "url": "@Resources.Global.DATA_TABLE_JSON"
+                }
+            });
+        });
+
+        var nb;
+        function onSuccessDelete(result) {
+            if (result == "ok") {
+                alert('@Resources.Global.SuccessRemove')
+            } else {
+                alert('@Resources.Global.FailRemove')
+            }
+
+            window.location.reload();
+        }
+
+    </script>
+}
