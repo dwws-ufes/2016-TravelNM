@@ -30,6 +30,8 @@
                         @using (Html.BeginForm("Update", "Customer", FormMethod.Post, new { @id = "form_customer" }))
                         {
                             @Html.HiddenFor(model => Model.Customer.Id)
+                            @Html.HiddenFor(model => Model.Customer.Salt)
+                            @Html.HiddenFor(model => Model.Customer.SupportPassword)
 
                             @Html.Partial("_Form", Model);
                             <button type="submit" class="btn btn-primary">@Resources.Global.Update</button>

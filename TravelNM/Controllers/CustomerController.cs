@@ -16,6 +16,8 @@ namespace TravelNM.Controllers
 
         private IMaintenance<City> _maintenanceCity;
 
+         String Password { get; set; }
+
         public CustomerController(IMaintenance<Customer> maintenance, IMaintenance<City> maintenanceCity)
         {
             this._maintenance = maintenance;
@@ -37,6 +39,7 @@ namespace TravelNM.Controllers
         {
             customerview.Customer = this._maintenance.Get(id);
             customerview.Cities = _maintenanceCity.GetAll();
+            customerview.Customer.SupportPassword = customerview.Customer.Password;
             return View(customerview);
         }
 
@@ -57,9 +60,11 @@ namespace TravelNM.Controllers
             }
             else
             {
-                customerview.Customer.Salt = Crypto.GenerateSalt();
-                customerview.Customer.Password = methods.GenHashSalt(customerview.Customer.Password, customerview.Customer.Salt);
+                
                 customerview.Customer.Status = int.Parse(Request.Form["Status"].ToString());
+
+                if (customerview.Customer.Password != customerview.Customer.SupportPassword)
+                    customerview.Customer.Password = methods.GenHashSalt(customerview.Customer.Password, customerview.Customer.Salt);
 
                 this._maintenance.Update(customerview.Customer);
                 return RedirectToAction("Index");   
