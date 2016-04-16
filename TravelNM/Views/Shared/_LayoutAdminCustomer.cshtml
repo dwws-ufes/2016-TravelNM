@@ -71,7 +71,7 @@
                     <!-- dropdown user-->
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i>@Resources.User.UserProfile</a>
+                            <a href="@Url.Action("Edit", "Register")"><i class="fa fa-user fa-fw"></i> @Resources.Customer.Profile</a>
                         </li>
                         @*<li>
                                 <a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
@@ -79,9 +79,6 @@
                         <li class="divider"></li>
                         <li class="">
                             <a href="@Url.Action("Index", "MyPackage")"><i class="fa fa-dashboard fa-fw"></i> @Resources.MyPackage.MyPackagesTravel</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Edit", "Register")"><i class="fa fa-user fa-fw"></i> @Resources.Customer.Profile</a>
                         </li>
                         <li>
                             <a href="@Url.Action("Index", "TravelPackageBuy")"><i class="fa fa-shopping-cart fa-fw"></i> @Resources.TravelPackageBuy.BuyPackages</a>

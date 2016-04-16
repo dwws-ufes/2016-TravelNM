@@ -49,7 +49,7 @@
 
 <div class="form-group">
     @Html.LabelFor(model => model.Customer.Password, Resources.Customer.Password)
-    @Html.PasswordFor(model => model.Customer.Password, new { @class = "form-control", @required = true })
+    @Html.TextBoxFor(model => model.Customer.Password, new { @class = "form-control", @required = true, @Type = "password" })
 </div>
 
 

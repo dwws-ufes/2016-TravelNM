@@ -38,6 +38,7 @@ namespace TravelNM.Controllers
             int id = int.Parse(Session["IdCustomer"].ToString());
             customerview.Customer = this._maintenance.Get(id);
             customerview.Cities = _maintenanceCity.GetAll();
+            customerview.Customer.SupportPassword = customerview.Customer.Password;
             return View(customerview);
         }
 
@@ -58,8 +59,8 @@ namespace TravelNM.Controllers
             }
             else
             {
-                customerview.Customer.Salt = Crypto.GenerateSalt();
-                customerview.Customer.Password = methods.GenHashSalt(customerview.Customer.Password, customerview.Customer.Salt);
+                if (customerview.Customer.Password != customerview.Customer.SupportPassword)
+                    customerview.Customer.Password = methods.GenHashSalt(customerview.Customer.Password, customerview.Customer.Salt);
 
                 this._maintenance.Update(customerview.Customer);
                 return RedirectToAction("Edit");   

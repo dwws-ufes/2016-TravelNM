@@ -43,8 +43,8 @@
                                 {
                                     <tr>
                                         <td>@travel.Id</td>
-                                        <td>@travel.TravelPackage.CityOrigin.Name</td>
-                                        <td>@travel.TravelPackage.CityDestination.Name</td>
+                                        <td>@string.Concat(@travel.TravelPackage.CityOrigin.Name + "/ " + @travel.TravelPackage.CityOrigin.State)</td>
+                                        <td>@string.Concat(@travel.TravelPackage.CityDestination.Name + "/ " + @travel.TravelPackage.CityDestination.State)</td>
                                         <td>@travel.TravelPackage.Priece</td>
                                         <td class="center">
                                             @switch (travel.Status)

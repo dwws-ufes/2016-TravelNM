@@ -30,6 +30,9 @@
                         @using (Html.BeginForm("Update", "Register", FormMethod.Post, new { @id = "form_customer" }))
                         {
                             @Html.HiddenFor(model => Model.Customer.Id)
+                            @Html.HiddenFor(model => Model.Customer.Salt)
+                            @Html.HiddenFor(model => Model.Customer.SupportPassword)
+                            @Html.HiddenFor(model => Model.Customer.Status)
 
                             @Html.Partial("_Form", Model);
                             <button type="submit" class="btn btn-primary">@Resources.Global.Update</button>
@@ -52,4 +55,5 @@
             $("#Customer_DateBirth").mask("9999-99-99");
         });
     </script>
+
 }
