@@ -1,31 +1,99 @@
-﻿@{
+﻿@model TravelNM.Models.DashboardView
+
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <div id="page-wrapper">
+
     <div class="row">
         <!-- page header -->
         <div class="col-lg-12">
-            <h1 class="page-header">@Resources.Global.Dashboard</h1>
+            <h1 class="page-header">@Resources.Dashboard.Dash</h1>
         </div>
         <!--end page header -->
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                   aqui
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-lg-6">
-                           aqui
-                        </div>
 
-                    </div>
+    <div class="row">
+        <!-- Welcome -->
+        <div class="col-lg-12">
+            <div class="alert alert-info">
+                <h4> <i class="fa fa-sort-numeric-desc "></i><b> &nbsp; @Resources.Dashboard.Statistics </b></h4>
+            </div>
+        </div>
+        <!--end  Welcome -->
+    </div>
+
+
+
+    <div class="row">
+        <!--quick info section -->
+        <div class="col-lg-3">
+            <div class="alert alert-danger text-center">
+                <i class="fa fa-users fa-3x"></i>@Resources.Dashboard.Customers &nbsp;<b>@Model.TotalCustomers</b>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="alert alert-success text-center">
+                <i class="fa  fa-shopping-cart fa-3x"></i>@Resources.Dashboard.SoldPackages &nbsp;<b>@Model.TotaSoldPackages</b>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="alert alert-info text-center">
+                <i class="fa fa-files-o fa-3x"></i>@Resources.Dashboard.Packages &nbsp;<b>@Model.TotalPackages</b>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="alert alert-warning text-center">
+                <i class="fa  fa-users fa-3x"></i>@Resources.Dashboard.Cities &nbsp;<b>@Model.TotalCities</b>
+            </div>
+        </div>
+        <!--end quick info section -->
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="panel panel-primary text-center no-boder">
+                <div class="panel-body red">
+                    <i class="fa fa-warning fa-3x"></i>
+                    <h3>@Model.TotaSoldPackagesWaitingPayment </h3>
+                </div>
+                <div class="panel-footer">
+                    <span class="panel-eyecandy-title">
+                        @Resources.Dashboard.SoldPackagesWPayment
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="panel panel-primary text-center no-boder">
+                <div class="panel-body yellow">
+                    <i class="fa fa-hand-o-down fa-3x"></i>
+                    <h3>@Model.TotaSoldPackagesCanceled </h3>
+                </div>
+                <div class="panel-footer">
+                    <span class="panel-eyecandy-title">
+                        @Resources.Dashboard.SoldPackagesCancelad
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="panel panel-primary text-center no-boder">
+                <div class="panel-body green">
+                    <i class="fa fa-dollar fa-3x"></i>
+                    <h3>@Model.TotaSoldPackagesPaid </h3>
+                </div>
+                <div class="panel-footer">
+                    <span class="panel-eyecandy-title">
+                        @Resources.Dashboard.SoldPackagesPaid
+                    </span>
                 </div>
             </div>
         </div>
     </div>
-</div>
+

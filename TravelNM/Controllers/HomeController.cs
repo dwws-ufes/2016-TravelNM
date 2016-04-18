@@ -29,8 +29,8 @@ namespace TravelNM.Controllers
 
         public ActionResult SearchPackage(string term)
         {
-            var items = this._maintenance.Search(new [] { term }).Select(x => (x.CityOrigin.Name + " x " + x.CityDestination.Name));
-
+            var items = this._maintenance.Search(new[] { term }).Select(x => new { label = (x.CityOrigin.Name + " x " + x.CityDestination.Name), value = (x.CityOrigin.Name + " x " + x.CityDestination.Name), id = x.Id });
+           
             return Json(items, JsonRequestBehavior.AllowGet);
         }
     }

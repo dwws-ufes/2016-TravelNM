@@ -2,3 +2,6 @@
  - Suporte a vários idiomas
  - Validações com HTML5
  - Login com Salt Criptografia MD5
+ - Ninject
+ - Jquery Autocomplete
+ - Jquery Datatables

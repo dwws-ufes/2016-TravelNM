@@ -168,6 +168,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>City.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Dashboard.pt.designer.cs">
+      <DependentUpon>Dashboard.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Dashboard.designer.cs">
+      <DependentUpon>Dashboard.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\City.pt1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -284,6 +294,7 @@
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Methods.cs" />
     <Compile Include="Models\CustomerView.cs" />
+    <Compile Include="Models\DashboardView.cs" />
     <Compile Include="Models\TravelPackageBuyView.cs" />
     <Compile Include="Models\TravelPackageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -461,6 +472,14 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Customer.designer.cs</LastGenOutput>
     </Content>
+    <Content Include="App_GlobalResources\Dashboard.pt.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Dashboard.pt.designer.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="App_GlobalResources\Dashboard.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Dashboard.designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="App_GlobalResources\Global.pt.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Global.pt.Designer.cs</LastGenOutput>
@@ -694,6 +713,7 @@
     <Content Include="Views\SoldPackage\New.cshtml" />
     <Content Include="Views\SoldPackage\_Form.cshtml" />
     <Content Include="Views\SoldPackage\Edit.cshtml" />
+    <Content Include="Views\TravelPackageBuy\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

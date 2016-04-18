@@ -23,7 +23,14 @@ namespace TravelNM.Controllers
         public ActionResult Index()
         {
             return View(this._maintenance.GetAll());
-        }   
+        }
+
+        public ActionResult Details(int id)
+        {
+            return View();
+        } 
+
+        
 
         [HttpPost]
         public JsonResult Create(TravelPackageBuy travelpackagebuy, int id)

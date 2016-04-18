@@ -55,6 +55,8 @@ namespace ApplicationTravelMN.classes
             var list = context.TravelPackageBuys.Include(t => t.TravelPackage).Include(c => c.Customer).
                 Where(item => item.TravelPackage.CityDestination.Name.ToUpper().Contains(arg0) |
                     item.Customer.Name.ToUpper().Contains(arg0)).ToList();
+
+
             return list;
         }
     }
