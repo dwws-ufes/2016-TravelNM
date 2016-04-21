@@ -188,6 +188,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="App_GlobalResources\Error.pt.designer.cs">
+      <DependentUpon>Error.pt.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\Global.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -263,6 +268,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>User.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Error.designer.cs">
+      <DependentUpon>Error.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\Web.pt.designer.cs">
       <DependentUpon>Web.pt.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -276,15 +286,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\LocalizationAttribute.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Controllers\MyPackageController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\SoldPackageController.cs" />
+    <Compile Include="Controllers\UnauthorizedErrorController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CityController..cs" />
-    <Compile Include="Controllers\SoldPackageController.cs" />
-    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
-    <Compile Include="Controllers\MyPackageController.cs" />
     <Compile Include="Controllers\TravelPackageBuyController.cs" />
     <Compile Include="Controllers\TravelPackageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -480,6 +491,10 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Dashboard.designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="App_GlobalResources\Error.pt.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Error.pt.designer.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="App_GlobalResources\Global.pt.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Global.pt.Designer.cs</LastGenOutput>
@@ -536,6 +551,10 @@
     <Content Include="App_GlobalResources\SoldPackage.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>SoldPackage.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Error.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Error.designer.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -714,6 +733,9 @@
     <Content Include="Views\SoldPackage\_Form.cshtml" />
     <Content Include="Views\SoldPackage\Edit.cshtml" />
     <Content Include="Views\TravelPackageBuy\Details.cshtml" />
+    <Content Include="Views\MyPackage\Details.cshtml" />
+    <Content Include="Views\Shared\_FormNewCustomer.cshtml" />
+    <Content Include="Views\UnauthorizedError\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -741,7 +763,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml">
+      <BrowseToURL>~/Shared/Error</BrowseToURL>
+    </Content>
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>

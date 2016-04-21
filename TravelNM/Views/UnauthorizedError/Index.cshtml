@@ -1,0 +1,121 @@
+﻿@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+
+@helper selected(string c, string culture)
+{
+    if (c == culture)
+    {
+        @:checked="checked"
+    }
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@Resources.Error.Title</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="~/assets_web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/assets_web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/themes/base/jquery.ui.autocomplete.css" rel="stylesheet" />
+    <!-- js -->
+    <script src="~/assets_web/js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <!-- animation-effect -->
+    <link href="~/assets_web/css/animate.min.css" rel="stylesheet">
+    <script src="~/assets_web/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!-- //animation-effect -->
+    @*<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>*@
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/assets_web/js/move-top.js"></script>
+    <script type="text/javascript" src="~/assets_web/js/easing.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 100);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="top-nav">
+            <span>
+                @*<img src="~/assets_web/images/menu.png" alt="" />*@
+            @using (Html.BeginForm("SetCulture", "Authentication"))
+            {
+                @Html.DropDownList("culture", new SelectListItem[]
+            {
+                new SelectListItem() { Text = "English", Value = "en-us", Selected = ("en-us" == culture)  },
+                new SelectListItem() { Text = "Portugues", Value = "pt-br", Selected = ("pt-br" == culture) }},
+                new
+                {
+                    @onchange = "form.submit();"
+                })
+            }
+        </span>
+        <ul class="nav1">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="shortcodes.html">Short Codes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="clearfix"> </div>
+        <!-- script-for-menu -->
+        <script>
+            $("span.menu").click(function () {
+                $("ul.nav1").slideToggle(300, function () {
+                    // Animation complete.
+                });
+            });
+        </script>
+        <!-- /script-for-menu -->
+    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="banner">
+                    <br />
+                    <div class="eader-left animated wow bounceInLeft col-md-offset-1">
+                        <h2>Oops!</h2>
+                    </div>
+                    <br />
+                    <div class="eader-left animated wow bounceInLeft col-md-offset-1">
+                        @Resources.Error.Error401
+                    </div>
+                    <br />
+                    <div class="eader-left animated wow bounceInLeft col-md-offset-1">
+                        @Resources.Error.ErrorMsg401
+                    </div>
+                    <br />
+                    <div class="eader-left animated wow bounceInLeft col-md-offset-1">
+                        <a href="http://localhost:57903/" class=" btn btn-primary btn-lg">
+                            <span class="glyphicon glyphicon-home"></span>
+                            @Resources.Error.TakeHome
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

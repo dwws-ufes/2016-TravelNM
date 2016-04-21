@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Cities" xml:space="preserve">
-    <value>Total de Cidades Cadastradas:</value>
+    <value>Cidades Cadastradas:</value>
   </data>
   <data name="Customers" xml:space="preserve">
-    <value>Total de Clientes Ativos:</value>
+    <value>Clientes Ativos:</value>
   </data>
   <data name="Dash" xml:space="preserve">
     <value>Principal</value>
   </data>
   <data name="Packages" xml:space="preserve">
-    <value>Total de Pacotes Registrados:</value>
+    <value>Pacotes Registrados:</value>
   </data>
   <data name="SoldPackages" xml:space="preserve">
-    <value>Total de Pacotes Vendidos:</value>
+    <value>Pacotes Vendidos:</value>
   </data>
   <data name="SoldPackagesCancelad" xml:space="preserve">
     <value>Pacotes Vendidos Cancelados</value>

@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
 }
 
@@ -103,8 +104,9 @@
                     <!-- /script-for-menu -->
                 </div>
                 <!-- /#push_sidebar -->
-                <div class="clearfix"> </div>
+                <div class="row"> </div>
             </div>
+        
             <div class="banner-info animated wow slideInUp" data-wow-delay="800ms">
                 <h3>@Resources.Web.DiscoverTheMostBeautifulPlaces</h3>
                 <div class="social-icons">
@@ -126,6 +128,7 @@
     </div>
 
     @RenderBody()
+
     <!-- //footer -->
     <!-- here stars scrolling icon -->
     <script type="text/javascript">

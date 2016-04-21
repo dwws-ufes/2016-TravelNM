@@ -37,38 +37,48 @@ namespace TravelNM.Controllers
         [HttpPost]
         public ActionResult LoginCustomer(Customer customer, Methods methods)
         {
-            customer.Password = methods.GenHashSalt(customer.Password, _maintenance.Search(new[] { customer.Email }).ToList().First().Salt);
-
-            if (this._authentication.LoginCustomer(customer) == null)
-                throw new Exception("Falha no login");
-            else
+            try
             {
-                FormsAuthentication.SetAuthCookie(customer.Email, false);
-                Session["IdCustomer"] = _maintenance.Search(new[] { customer.Email }).ToList().First().Id.ToString();
+                customer.Password = methods.GenHashSalt(customer.Password, _maintenance.Search(new[] { customer.Email }).ToList().First().Salt);
 
-                string ReturnUrl = (string) Session["ReturnUrl"];
-                if (string.IsNullOrWhiteSpace(ReturnUrl))
-                    return RedirectToAction("Index", "TravelPackageBuy");
+                if (this._authentication.LoginCustomer(customer) == null)
+                    return RedirectToAction("Index", "UnauthorizedError");
                 else
-                    return Redirect(ReturnUrl);
-            }
+                {
+                    FormsAuthentication.SetAuthCookie(customer.Email, false);
+                    Session["IdCustomer"] = _maintenance.Search(new[] { customer.Email }).ToList().First().Id.ToString();
 
+                    string ReturnUrl = (string)Session["ReturnUrl"];
+                    if (string.IsNullOrWhiteSpace(ReturnUrl))
+                        return RedirectToAction("Index", "TravelPackageBuy");
+                    else
+                        return Redirect(ReturnUrl);
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Index", "UnauthorizedError");
+            }
         }
 
         [HttpPost]
         public ActionResult LoginAdmin(User user)
         {
-
-            if (this._authentication.Login(user) == null)
-                throw new Exception("Falha no login");
-            else
+            try
             {
-                FormsAuthentication.SetAuthCookie(user.Email, false);
-                return RedirectToAction("Index", "Admin");
+                if (this._authentication.Login(user) == null)
+                    return RedirectToAction("Index", "UnauthorizedError");
+                else
+                {
+                    FormsAuthentication.SetAuthCookie(user.Email, false);
+                    return RedirectToAction("Index", "Admin");
+                }
             }
-
+            catch
+            {
+                return RedirectToAction("Index", "UnauthorizedError");
+            }
         }
-
 
         public ActionResult SetCulture(string culture)
         {

@@ -21,6 +21,7 @@
     <link href="~/assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
     <link href="~/assets/css/style.css" rel="stylesheet" />
     <link href="~/assets/css/main-style.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jquery")
     @RenderSection("css", required: false)
 </head>
 <body>
@@ -36,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="@Url.Action("Index", "Admin")">
+                <a class="navbar-brand" href="@Url.Action("Index", "TravelPackageBuy")">
                     <h2 style="color:#ffffff">TRAVEL MN</h2>
                 </a>
             </div>
@@ -77,6 +78,9 @@
                                 <a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
                             </li>*@
                         <li class="divider"></li>
+                        <li>
+                            <a href="@Url.Action("Logout", "Authentication")"><i class="fa fa-sign-out fa-fw"></i>@Resources.User.Logout</a>
+                        </li>
                         <li class="">
                             <a href="@Url.Action("Index", "MyPackage")"><i class="fa fa-dashboard fa-fw"></i> @Resources.MyPackage.MyPackagesTravel</a>
                         </li>

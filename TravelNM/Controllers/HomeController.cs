@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TravelNM.Models;
 
 namespace TravelNM.Controllers
 {
@@ -12,14 +13,22 @@ namespace TravelNM.Controllers
     public class HomeController : BaseController
     {
         private IMaintenance<TravelPackage> _maintenance;
-        public HomeController(IMaintenance<TravelPackage> maintenance)
+        private IMaintenance<Customer> _maintenanceCustomer;
+
+        public HomeController(IMaintenance<TravelPackage> maintenance, IMaintenance<Customer> maintenanceCustomer)
         {
             this._maintenance = maintenance;
+            this._maintenanceCustomer = maintenanceCustomer;
         }
 
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult New(CustomerView customerview)
+        {
+            return View(customerview.Customer);
         }
 
         public ActionResult Admin()

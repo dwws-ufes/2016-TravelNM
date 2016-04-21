@@ -36,6 +36,7 @@
                                     <th>@Resources.MyPackage.CityDestination</th>
                                     <th>@Resources.MyPackage.Priece</th>
                                     <th>@Resources.MyPackage.Status</th>
+                                    <th>-</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,6 +58,7 @@
                                                     break;
                                             }   
                                         </td>
+                                        <td><a href="@Url.Action("Details", "MyPackage", new { id = travel.Id })"><i class="fa fa-search fa-fw"></i></a></td>
                                     </tr>
                                 }
 

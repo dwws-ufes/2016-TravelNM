@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Buy Now.
+        /// </summary>
+        internal static string Buy {
+            get {
+                return ResourceManager.GetString("Buy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Buy Packages.
         /// </summary>
         internal static string BuyPackages {
@@ -111,6 +120,24 @@ namespace Resources {
         internal static string Instruction {
             get {
                 return ResourceManager.GetString("Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm the Package Below.
+        /// </summary>
+        internal static string MessageConfirm {
+            get {
+                return ResourceManager.GetString("MessageConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Package Detail.
+        /// </summary>
+        internal static string PackageDetails {
+            get {
+                return ResourceManager.GetString("PackageDetails", resourceCulture);
             }
         }
         

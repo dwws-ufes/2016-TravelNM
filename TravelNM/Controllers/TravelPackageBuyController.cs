@@ -25,24 +25,22 @@ namespace TravelNM.Controllers
             return View(this._maintenance.GetAll());
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id, TravelPackageView travelpackageview)
         {
-            return View();
+            travelpackageview.TravelPackage = this._maintenance.Get(id);
+            return View(travelpackageview);
         } 
-
-        
 
         [HttpPost]
         public JsonResult Create(TravelPackageBuy travelpackagebuy, int id)
-        {           
-            travelpackagebuy.DateBuy = DateTime.Now;          
+        {
+            travelpackagebuy.DateBuy = DateTime.Now;
             travelpackagebuy.Status = 1;
 
             travelpackagebuy.Customer = new Customer() { Id = int.Parse(Session["IdCustomer"].ToString()) };
             travelpackagebuy.TravelPackage = new TravelPackage() { Id = id };
 
             this._maintenancebuypackage.Save(travelpackagebuy);
-
             return Json("ok");
         }
     }

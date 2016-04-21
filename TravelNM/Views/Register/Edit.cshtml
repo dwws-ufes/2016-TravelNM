@@ -5,10 +5,6 @@
     Layout = "~/Views/Shared/_LayoutAdminCustomer.cshtml";
 }
 
-@section css
-{
-}
-
 <div id="page-wrapper">
     <div class="row">
         <!-- page header -->
@@ -46,13 +42,27 @@
     </div>
 </div>
 
-
 @section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
+
+    <script src="/scripts/jquery.validate.js"></script>
+    <script src="/scripts/jquery.validate.unobtrusive.js"></script>
+
     <script src="~/Scripts/jquery.maskedinput.min.js"></script>
     <script src="~/Scripts/jquery-maskmoney.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#Customer_DateBirth").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
+        });
+    </script>
+
     <script>
         jQuery(function ($) {
-            $("#Customer_DateBirth").mask("9999-99-99");
+            $("#Customer_DateBirth").mask("99/99/9999");
         });
     </script>
 

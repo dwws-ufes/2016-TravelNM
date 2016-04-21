@@ -60,7 +60,7 @@ namespace TravelNM.Controllers
             travelpackagebuyview.TravelPackageBuy = this._maintenance.Get(id);
             travelpackagebuyview.TravelPackage = _maintenanceTravelPackage.GetAll();
             travelpackagebuyview.Customers = _maintenanceCustomer.GetAll();
-           
+
             return View(travelpackagebuyview);
         }
 
@@ -74,5 +74,5 @@ namespace TravelNM.Controllers
             this._maintenance.Update(travelpackagebuyview.TravelPackageBuy);
             return RedirectToAction("Index");
         }
-    } 
+    }
 }

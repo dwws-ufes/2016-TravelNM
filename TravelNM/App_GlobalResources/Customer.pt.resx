@@ -132,6 +132,12 @@
   <data name="DateBirth" xml:space="preserve">
     <value>Data de Nascimento</value>
   </data>
+  <data name="DateInvalid" xml:space="preserve">
+    <value>O Campo Data de Nascimento é Inválido</value>
+  </data>
+  <data name="DateRequired" xml:space="preserve">
+    <value>O Campo Data de Nascimento é Requerido</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Editar Cliente</value>
   </data>

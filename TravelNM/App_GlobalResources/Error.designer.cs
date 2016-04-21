@@ -22,14 +22,14 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "12.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Dashboard {
+    internal class Error {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Dashboard() {
+        internal Error() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Dashboard", global::System.Reflection.Assembly.Load("App_GlobalResources"));
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Error", global::System.Reflection.Assembly.Load("App_GlobalResources"));
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,83 +61,38 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registered Cities:.
+        ///   Looks up a localized string similar to 401 Unauthorized.
         /// </summary>
-        internal static string Cities {
+        internal static string Error401 {
             get {
-                return ResourceManager.GetString("Cities", resourceCulture);
+                return ResourceManager.GetString("Error401", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Actives Customers:.
+        ///   Looks up a localized string similar to Sorry, an error has occured, User Unauthorized!.
         /// </summary>
-        internal static string Customers {
+        internal static string ErrorMsg401 {
             get {
-                return ResourceManager.GetString("Customers", resourceCulture);
+                return ResourceManager.GetString("ErrorMsg401", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dashboard.
+        ///   Looks up a localized string similar to Take Me Home.
         /// </summary>
-        internal static string Dash {
+        internal static string TakeHome {
             get {
-                return ResourceManager.GetString("Dash", resourceCulture);
+                return ResourceManager.GetString("TakeHome", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registered Packages:.
+        ///   Looks up a localized string similar to Error.
         /// </summary>
-        internal static string Packages {
+        internal static string Title {
             get {
-                return ResourceManager.GetString("Packages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sold Packages:.
-        /// </summary>
-        internal static string SoldPackages {
-            get {
-                return ResourceManager.GetString("SoldPackages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Packages Sold Canceled.
-        /// </summary>
-        internal static string SoldPackagesCancelad {
-            get {
-                return ResourceManager.GetString("SoldPackagesCancelad", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Packages Sold Paid.
-        /// </summary>
-        internal static string SoldPackagesPaid {
-            get {
-                return ResourceManager.GetString("SoldPackagesPaid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Packages Sold Waiting Payment.
-        /// </summary>
-        internal static string SoldPackagesWPayment {
-            get {
-                return ResourceManager.GetString("SoldPackagesWPayment", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Statistics.
-        /// </summary>
-        internal static string Statistics {
-            get {
-                return ResourceManager.GetString("Statistics", resourceCulture);
+                return ResourceManager.GetString("Title", resourceCulture);
             }
         }
     }

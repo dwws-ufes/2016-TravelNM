@@ -9,7 +9,7 @@
 {
     <link href="~/assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 }
-
+    
 <div id="page-wrapper">
 
     <div class="row">
@@ -35,7 +35,7 @@
                                     <th>@Resources.TravelPackage.CityOrigin</th>
                                     <th>@Resources.TravelPackage.CityDestination</th>
                                     <th>@Resources.TravelPackage.Priece</th>
-                                    <th></th>
+                                    <th>-</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,6 +51,8 @@
                                                href="@Url.Action("Create", "TravelPackageBuy", new { id = travel.Id})" 
                                             data-ajax-confirm="@string.Concat(@Resources.Global.ConfirmBuyPackage, " ", @travel.CityOrigin.Name, " X ", @travel.CityDestination.Name,
                                                " - $ ", @travel.Priece)"><i class="fa fa-shopping-cart fa-fw"></i></a>
+
+                                            <a href="@Url.Action("Details", "TravelPackageBuy", new { id = travel.Id })"><i class="fa fa-search fa-fw"></i></a>
                                         </td>
                                     </tr>
                                 }

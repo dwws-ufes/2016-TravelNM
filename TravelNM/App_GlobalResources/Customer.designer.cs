@@ -106,6 +106,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Field DateBirth  is Invaid.
+        /// </summary>
+        internal static string DateInvalid {
+            get {
+                return ResourceManager.GetString("DateInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Field DateBirth is Required.
+        /// </summary>
+        internal static string DateRequired {
+            get {
+                return ResourceManager.GetString("DateRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Customer.
         /// </summary>
         internal static string Edit {

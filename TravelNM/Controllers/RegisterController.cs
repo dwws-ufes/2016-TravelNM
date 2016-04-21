@@ -47,7 +47,7 @@ namespace TravelNM.Controllers
         public ActionResult Update(CustomerView customerview, Methods methods)
         {
             var culture = System.Globalization.CultureInfo.CurrentCulture;
-   
+
             if (customerview.Customer.Password.ToString().Trim().Length < 6)
             {
                 if (culture.Name == "en-US")
@@ -63,8 +63,8 @@ namespace TravelNM.Controllers
                     customerview.Customer.Password = methods.GenHashSalt(customerview.Customer.Password, customerview.Customer.Salt);
 
                 this._maintenance.Update(customerview.Customer);
-                return RedirectToAction("Edit");   
-            }      
+                return RedirectToAction("Edit");
+            }
         }
 
         [HttpPost]
@@ -95,10 +95,11 @@ namespace TravelNM.Controllers
                 else
                 {
                     customerview.Customer.Salt = Crypto.GenerateSalt();
+                    customerview.Customer.Status = 1;
                     customerview.Customer.Password = methods.GenHashSalt(customerview.Customer.Password, customerview.Customer.Salt);
 
                     this._maintenance.Save(customerview.Customer);
-                    return RedirectToAction("../Authentication/Login/1");
+                    return RedirectToAction("../Authentication/LoginCustomer");
                 }
         }
 

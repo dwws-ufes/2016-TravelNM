@@ -18,9 +18,15 @@ namespace TravelNM.Controllers
             this._maintenance = maintenance;
         }
 
+        public ActionResult Details(int id, TravelPackageView travelpackageview)
+        {
+            travelpackageview.TravelPackage = this._maintenance.Get(id).TravelPackage;
+            return View(travelpackageview);
+        }
+
         public ActionResult Index()
         {
             return View(this._maintenance.GetAllId(int.Parse(Session["IdCustomer"].ToString())));
-        }   
+        }
     }
 }

@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Already a member? Click Here to Login.
+        /// </summary>
+        internal static string AlreadyPassword {
+            get {
+                return ResourceManager.GetString("AlreadyPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Discover The Most Beautiful Places.
         /// </summary>
         internal static string DiscoverTheMostBeautifulPlaces {

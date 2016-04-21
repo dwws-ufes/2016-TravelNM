@@ -117,37 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Buy" xml:space="preserve">
-    <value>Buy Now</value>
+  <data name="Error401" xml:space="preserve">
+    <value>401 Unauthorized</value>
   </data>
-  <data name="BuyPackages" xml:space="preserve">
-    <value>Buy Packages</value>
+  <data name="ErrorMsg401" xml:space="preserve">
+    <value>Sorry, an error has occured, User Unauthorized!</value>
   </data>
-  <data name="CityDestination" xml:space="preserve">
-    <value>Destination</value>
-  </data>
-  <data name="CityOrigin" xml:space="preserve">
-    <value>Origin</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="EnterYourInformationBelow" xml:space="preserve">
-    <value>Enter Your Information Below</value>
-  </data>
-  <data name="Instruction" xml:space="preserve">
-    <value>To purchase click on the shopping cart icon</value>
-  </data>
-  <data name="MessageConfirm" xml:space="preserve">
-    <value>Confirm the Package Below</value>
-  </data>
-  <data name="PackageDetails" xml:space="preserve">
-    <value>Package Detail</value>
-  </data>
-  <data name="Priece" xml:space="preserve">
-    <value>Priece</value>
+  <data name="TakeHome" xml:space="preserve">
+    <value>Take Me Home</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Buy Travel Package</value>
+    <value>Error</value>
   </data>
 </root>

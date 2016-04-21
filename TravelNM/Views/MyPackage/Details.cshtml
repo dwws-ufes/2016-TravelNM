@@ -52,13 +52,6 @@
                                         @Html.DisplayFor(model => model.TravelPackage.Description)
                                     </h4>
                                 </div>
-
-                                <div class="col-lg-offset-12">
-                                    <a data-ajax="true" data-ajax-method="POST" data-ajax-success="onSuccessDelete"
-                                       href="@Url.Action("Create", "TravelPackageBuy", new { id = Model.TravelPackage.Id})">
-                                        <i class="btn btn-primary">@Resources.TravelPackageBuy.Buy</i>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
