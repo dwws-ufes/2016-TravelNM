@@ -22,21 +22,21 @@
             <!-- Form Elements -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                   @Resources.Customer.EnterYourInformationBelow
+                    @Resources.Customer.EnterYourInformationBelow
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                        @using (Html.BeginForm("Update", "Customer", FormMethod.Post, new { @id = "form_customer" }))
-                        {
-                            @Html.HiddenFor(model => Model.Customer.Id)
-                            @Html.HiddenFor(model => Model.Customer.Salt)
-                            @Html.HiddenFor(model => Model.Customer.SupportPassword)
+                            @using (Html.BeginForm("Update", "Customer", FormMethod.Post, new { @id = "form_customer" }))
+                            {
+                                @Html.HiddenFor(model => Model.Customer.Id)
+                                @Html.HiddenFor(model => Model.Customer.Salt)
+                                @Html.HiddenFor(model => Model.Customer.SupportPassword)
 
-                            @Html.Partial("_Form", Model);
-                            <button type="submit" class="btn btn-primary">@Resources.Global.Update</button>
-                        }
-                        </div>                    
+                                @Html.Partial("_Form", Model);
+                                <button type="submit" class="btn btn-primary">@Resources.Global.Update</button>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
@@ -47,17 +47,28 @@
 
 
 @section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/globalize")
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
+
+    <script src="/scripts/jquery.validate.js"></script>
+    <script src="/scripts/jquery.validate.unobtrusive.js"></script>
+
     <script src="~/Scripts/jquery.maskedinput.min.js"></script>
     <script src="~/Scripts/jquery-maskmoney.js"></script>
+
     <script>
-        jQuery(function ($) {
-            $("#Customer_DateBirth").mask("9999-99-99");
+        $(document).ready(function () {
+            $("#Customer_DateBirth").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
         });
     </script>
 
     <script>
-        $(document).ready(function () {
-            $("#Status").val("@Model.Customer.Status");
+        jQuery(function ($) {
+            $("#Customer_DateBirth").mask("99/99/9999");
         });
     </script>
+
 }

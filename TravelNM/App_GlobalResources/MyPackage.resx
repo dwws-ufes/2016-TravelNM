@@ -123,6 +123,12 @@
   <data name="CityOrigin" xml:space="preserve">
     <value>Origin</value>
   </data>
+  <data name="DateBuy" xml:space="preserve">
+    <value>Date Buy</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
   <data name="Instruction" xml:space="preserve">
     <value>Your Purchased Packages</value>
   </data>
@@ -131,6 +137,9 @@
   </data>
   <data name="Priece" xml:space="preserve">
     <value>Priece</value>
+  </data>
+  <data name="SeePackage" xml:space="preserve">
+    <value>See You Purchased Package</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>

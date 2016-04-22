@@ -1,0 +1,98 @@
+﻿@model Model.TravelPackage
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdminCustomer.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <!-- page header -->
+        <div class="col-lg-12">
+            <h1 class="page-header">@Resources.TravelPackageBuy.PackageDetails</h1>
+        </div>
+        <!--end page header -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Form Elements -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    @Resources.TravelPackageBuy.MessageConfirm
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="panel-body">
+                                <div>
+                                    <h4>
+                                        <b>@Resources.TravelPackageBuy.CityOrigin:</b> 
+                                        @Html.DisplayFor(model => model.CityOrigin.Name) / @Html.DisplayFor(model => model.CityOrigin.State)
+                                    </h4>
+                                </div>
+
+                                <div>
+                                    <h4>
+                                        <b>@Resources.TravelPackageBuy.CityDestination:</b>
+                                        @Html.DisplayFor(model => model.CityDestination.Name) /
+                                        @Html.DisplayFor(model => model.CityDestination.State)
+                                    </h4>
+                                </div>
+
+                                <div>
+                                    <h4>
+                                        <b>@Resources.TravelPackageBuy.Priece:</b>
+                                        @Html.DisplayFor(model => model.Priece)
+                                    </h4>
+                                </div>
+                                <br />
+                                <div>
+                                    <h4>
+                                        <b>@Resources.TravelPackageBuy.Description:</b>
+                                        @Html.DisplayFor(model => model.Description)
+                                    </h4>
+                                </div>
+
+                                <div class="col-lg-offset-12">
+                                    <a data-ajax="true" data-ajax-method="POST" data-ajax-success="onSuccessBuy"
+                                       href="@Url.Action("CreateCustomer", "TravelPackageBuy", new { id = Model.Id})">
+                                        <i class="btn btn-primary">@Resources.TravelPackageBuy.Buy</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Form Elements -->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <!-- Page-Level Plugin Scripts-->
+    <script src="~/assets/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="~/assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable({
+                "language": {
+                    "url": "@Resources.Global.DATA_TABLE_JSON"
+                }
+            });
+        });
+
+        function onSuccessBuy(result) {
+            if(result == "ok")
+            {
+                alert('@Resources.Global.SuccessBuyPackage')
+            }else
+            {
+                alert('@Resources.Global.FailedBuyPackage')
+            }
+
+            window.location.reload();
+        }
+
+    </script>
+}

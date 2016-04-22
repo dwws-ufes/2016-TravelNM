@@ -37,9 +37,16 @@
     new { @class = "form-control", @required = true })
 </div>
 
-<div class="form-group">
+<div class="editor-field">
     @Html.LabelFor(model => model.Customer.DateBirth, Resources.Customer.DateBirth)
-    @Html.TextBoxFor(model => model.Customer.DateBirth, new { @class = "form-control", @required = true })
+    @Html.TextBoxFor(model => model.Customer.DateBirth, "{0:dd/MM/yyyy}", new
+            {
+                @class = "form-control",
+                @required = true,
+                @data_val_required = Resources.Customer.DateRequired,
+                @data_val_date = Resources.Customer.DateInvalid
+            })
+    @Html.ValidationMessageFor(model => model.Customer.DateBirth)
 </div>
 
 <div class="form-group">

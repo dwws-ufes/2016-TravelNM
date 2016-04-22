@@ -1,7 +1,7 @@
 ﻿@model TravelNM.Models.TravelPackageBuyView
 
 @{
-    ViewBag.Title = Resources.SoldPackage.New;
+    ViewBag.Title = Resources.SoldPackage.Edit;
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -13,7 +13,7 @@
     <div class="row">
         <!-- page header -->
         <div class="col-lg-12">
-            <h1 class="page-header">@Resources.SoldPackage.New</h1>
+            <h1 class="page-header">@Resources.SoldPackage.Edit</h1>
         </div>
         <!--end page header -->
     </div>
@@ -22,18 +22,20 @@
             <!-- Form Elements -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                   @Resources.SoldPackage.EnterYourInformationBelow
+                    @Resources.SoldPackage.EnterYourInformationBelow
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                        @using (Html.BeginForm("Create", "SoldPackage", FormMethod.Post, new { @id = "form_travelpackagesold" }))
+                            @using (Html.BeginForm("Update", "TravelPackageBuy", FormMethod.Post, new { @id = "form_soldpackage" }))
                             {
-                                @Html.Partial("_Form", Model.TravelPackageBuy);                         
-                                <button type="submit" class="btn btn-primary">@Resources.Global.Create</button>
+                                @Html.HiddenFor(model => model.TravelPackageBuy.Id)
+
+                                @Html.Partial("_Form", Model);
+                                <button type="submit" class="btn btn-primary">@Resources.Global.Update</button>
                             }
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
@@ -42,13 +44,12 @@
     </div>
 </div>
 
-
 @section scripts {
-    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
-    <script src="~/Scripts/jquery-maskmoney.js"></script>
     <script>
-        jQuery(function ($) {
-            $("#TravelPackage_Priece").maskMoney({ showSymbol: false, symbol: "R$", decimal: ".", thousands: "" });
+        $(document).ready(function () {
+            $("#Status").val("@Model.TravelPackageBuy.Status");
         });
     </script>
 }
+
+

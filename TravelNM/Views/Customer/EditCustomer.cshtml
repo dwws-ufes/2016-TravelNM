@@ -23,14 +23,14 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                        @using (Html.BeginForm("Update", "Register", FormMethod.Post, new { @id = "form_customer" }))
+                        @using (Html.BeginForm("Update", "Customer", FormMethod.Post, new { @id = "form_customer" }))
                         {
                             @Html.HiddenFor(model => Model.Customer.Id)
                             @Html.HiddenFor(model => Model.Customer.Salt)
                             @Html.HiddenFor(model => Model.Customer.SupportPassword)
                             @Html.HiddenFor(model => Model.Customer.Status)
 
-                            @Html.Partial("_Form", Model);
+                            @Html.Partial("_FormEditCustomer", Model);
                             <button type="submit" class="btn btn-primary">@Resources.Global.Update</button>
                         }
                         </div>                    

@@ -26,11 +26,6 @@ namespace TravelNM.Controllers
             return View();
         }
 
-        public ActionResult New(CustomerView customerview)
-        {
-            return View(customerview.Customer);
-        }
-
         public ActionResult Admin()
         {
             return RedirectToActionPermanent("Index", "Admin");

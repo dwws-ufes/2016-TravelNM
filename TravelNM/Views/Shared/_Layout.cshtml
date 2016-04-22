@@ -149,7 +149,7 @@
                     source: $(this).data("autocomplete-url"),
                     select: function (event, data) {
                        // console.log(item)
-                        window.location = "@Url.Action("Details", "TravelPackageBuy")" + "/" + data.item.id;
+                        window.location = "@Url.Action("Details", "TravelPackage")" + "/" + data.item.id;
                     }
                 });
             });

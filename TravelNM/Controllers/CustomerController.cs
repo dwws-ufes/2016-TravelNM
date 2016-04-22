@@ -7,16 +7,14 @@ using System.Web;
 using System.Web.Mvc;
 using TravelNM.Models;
 using System.Web.Helpers;
+using System.Web.Security;
 
 namespace TravelNM.Controllers
 {
     public class CustomerController : BaseController
     {
         private IMaintenance<Customer> _maintenance;
-
         private IMaintenance<City> _maintenanceCity;
-
-         String Password { get; set; }
 
         public CustomerController(IMaintenance<Customer> maintenance, IMaintenance<City> maintenanceCity)
         {
@@ -43,6 +41,19 @@ namespace TravelNM.Controllers
             return View(customerview);
         }
 
+        public ActionResult EditCustomer(int id, CustomerView customerview)
+        {
+            if (id == int.Parse(Session["idCustomer"].ToString()))
+            {
+                customerview.Customer = this._maintenance.Get(id);
+                customerview.Cities = _maintenanceCity.GetAll();
+                customerview.Customer.SupportPassword = customerview.Customer.Password;
+                return View(customerview);
+            }
+            else
+                return RedirectToAction("EditCustomer/" + (Session["idCustomer"]).ToString());
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken()]
         public ActionResult Update(CustomerView customerview, Methods methods)
@@ -60,26 +71,31 @@ namespace TravelNM.Controllers
             }
             else
             {
-                
-                customerview.Customer.Status = int.Parse(Request.Form["Status"].ToString());
+                if (Session["idCustomer"] == null)
+                    customerview.Customer.Status = int.Parse(Request.Form["Status"].ToString());
 
                 if (customerview.Customer.Password != customerview.Customer.SupportPassword)
                     customerview.Customer.Password = methods.GenHashSalt(customerview.Customer.Password, customerview.Customer.Salt);
 
                 this._maintenance.Update(customerview.Customer);
-                return RedirectToAction("Index");   
+
+                if (Session["idCustomer"] == null)
+                    return RedirectToAction("Index");
+                else
+                    return RedirectToAction("EditCustomer/" + (Session["idCustomer"]).ToString());
             }      
         }
 
         [HttpPost]
-        public JsonResult Delete(CustomerView customerview)
+        public JsonResult Delete(Customer customer)
         {
-            this._maintenance.Delete(customerview.Customer);
+            this._maintenance.Delete(customer);
             return Json("ok");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken()]
+        [AllowAnonymous]
         public ActionResult Create(CustomerView customerview, Methods methods)
         {
             var culture = System.Globalization.CultureInfo.CurrentCulture;
@@ -107,10 +123,27 @@ namespace TravelNM.Controllers
                 {
                     customerview.Customer.Salt = Crypto.GenerateSalt();
                     customerview.Customer.Password = methods.GenHashSalt(customerview.Customer.Password, customerview.Customer.Salt);
-                    customerview.Customer.Status = int.Parse(Request.Form["Status"].ToString());
+
+                    if (Request.Form["Status"] != null)
+                        customerview.Customer.Status = int.Parse(Request.Form["Status"].ToString());
+                    else
+                        customerview.Customer.Status = 1;
 
                     this._maintenance.Save(customerview.Customer);
-                    return RedirectToAction("Index");
+
+                    if (customerview.Customer.Neighborhood == null)
+                    {
+                        FormsAuthentication.SetAuthCookie(customerview.Customer.Email, false);
+                        Session["IdCustomer"] = _maintenance.Search(new[] { customerview.Customer.Email }).ToList().First().Id.ToString();
+
+                        string ReturnUrl = (string)Session["ReturnUrl"];
+                        if (string.IsNullOrWhiteSpace(ReturnUrl))
+                            return RedirectToAction("BuyPackageIndex", "TravelPackage");
+                        else
+                            return Redirect(ReturnUrl);
+                    }
+                    else 
+                        return RedirectToAction("Index");
                 }
         }
 

@@ -77,12 +77,11 @@
                             <h3 class="panel-title">@Resources.Customer.Register</h3>
                         </div>
                         <div class="panel-body">
-                            @using (Html.BeginForm("Create", "Register", FormMethod.Post, new { @id = "form_register" }))
+                            @using (Html.BeginForm("Create", "Customer", FormMethod.Post, new { @id = "form_register" }))
                             {
                                 @Html.Partial("_FormNewCustomer", Model);
                                 <button type="submit" class="btn btn-primary">@Resources.Global.Create</button>
-                            }
-                 
+                            }             
                     </div>
                 </div>
             </div>

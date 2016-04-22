@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using TravelNM.Helpers;
+using TravelNM.Models;
 
 namespace TravelNM.Controllers
 {
@@ -15,23 +16,34 @@ namespace TravelNM.Controllers
     {
         private IAuthentication _authentication;
         private IMaintenance<Customer> _maintenance;
+        private IMaintenance<City> _maintenanceCity;
 
-        public AuthenticationController(IAuthentication authentication, IMaintenance<Customer> maintenance)
+        public AuthenticationController(IAuthentication authentication, IMaintenance<Customer> maintenance, 
+            IMaintenance<City> maintenanceCity)
         {
             this._authentication = authentication;
             this._maintenance = maintenance;
+            this._maintenanceCity = maintenanceCity;
         }
 
-        public ActionResult LoginAdmin()
+        public ActionResult LoginAdmin(CustomerView customerview)
         {
+            New(customerview);
             ViewBag.Action = "LoginAdmin";
             return View("Login");
         }
-        public ActionResult LoginCustomer(string ReturnUrl)
+        public ActionResult LoginCustomer(string ReturnUrl, CustomerView customerview)
         {
+            New(customerview);
             Session["ReturnUrl"] = ReturnUrl;
             ViewBag.Action = "LoginCustomer";
             return View("Login");
+        }
+
+        public ActionResult New(CustomerView customerview)
+        {
+            customerview.Cities = _maintenanceCity.GetAll();
+            return View(customerview);
         }
 
         [HttpPost]
@@ -50,7 +62,7 @@ namespace TravelNM.Controllers
 
                     string ReturnUrl = (string)Session["ReturnUrl"];
                     if (string.IsNullOrWhiteSpace(ReturnUrl))
-                        return RedirectToAction("Index", "TravelPackageBuy");
+                        return RedirectToAction("BuyPackageIndex", "TravelPackage");
                     else
                         return Redirect(ReturnUrl);
                 }
@@ -106,6 +118,5 @@ namespace TravelNM.Controllers
             Session.Abandon();
             FormsAuthentication.RedirectToLoginPage();
         }
-
     }
 }

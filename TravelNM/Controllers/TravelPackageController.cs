@@ -18,12 +18,15 @@ namespace TravelNM.Controllers
         public TravelPackageController(IMaintenance<TravelPackage> maintenance, IMaintenance<City> maintenanceCity)
         {
             this._maintenance = maintenance;
-
-            // Added Class _maintenanceCity for fill DDLFor Cities Origin and Destination.
             this._maintenanceCity = maintenanceCity;
         }
 
         public ActionResult Index()
+        {
+            return View(this._maintenance.GetAll());
+        }
+
+        public ActionResult BuyPackageIndex()
         {
             return View(this._maintenance.GetAll());
         }
@@ -67,7 +70,7 @@ namespace TravelNM.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken()]
         public ActionResult Create(TravelPackageView travelpackageview)
-        {            
+        {
             if (travelpackageview.TravelPackage.CityOrigin.Id != travelpackageview.TravelPackage.CityDestination.Id)
             {
                 this._maintenance.Save(travelpackageview.TravelPackage);
@@ -78,6 +81,12 @@ namespace TravelNM.Controllers
                 Response.Write("<script>window.location = '" + "New/" + "' </script>");
                 return null;
             }
+        }
+
+        public ActionResult Details(TravelPackage travelpackage)
+        {
+            travelpackage = _maintenance.Get(travelpackage.Id);
+            return View(travelpackage);
         }
     }
 }

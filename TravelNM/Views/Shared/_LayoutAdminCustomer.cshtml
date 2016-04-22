@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="@Url.Action("Index", "TravelPackageBuy")">
+                <a class="navbar-brand" href="@Url.Action("BuyPackageIndex", "TravelPackage")">
                     <h2 style="color:#ffffff">TRAVEL MN</h2>
                 </a>
             </div>
@@ -72,7 +72,7 @@
                     <!-- dropdown user-->
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="@Url.Action("Edit", "Register")"><i class="fa fa-user fa-fw"></i> @Resources.Customer.Profile</a>
+                            <a href="@Url.Action("EditCustomer", "Customer", new { id = Session["idCustomer"]})"><i class="fa fa-user fa-fw"></i> @Resources.Customer.Profile</a>
                         </li>
                         @*<li>
                                 <a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
@@ -82,10 +82,10 @@
                             <a href="@Url.Action("Logout", "Authentication")"><i class="fa fa-sign-out fa-fw"></i>@Resources.User.Logout</a>
                         </li>
                         <li class="">
-                            <a href="@Url.Action("Index", "MyPackage")"><i class="fa fa-dashboard fa-fw"></i> @Resources.MyPackage.MyPackagesTravel</a>
+                            <a href="@Url.Action("MyPackage", "TravelPackageBuy")"><i class="fa fa-dashboard fa-fw"></i> @Resources.MyPackage.MyPackagesTravel</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("Index", "TravelPackageBuy")"><i class="fa fa-shopping-cart fa-fw"></i> @Resources.TravelPackageBuy.BuyPackages</a>
+                            <a href="@Url.Action("BuyPackageIndex", "TravelPackage")"><i class="fa fa-shopping-cart fa-fw"></i> @Resources.TravelPackageBuy.BuyPackages</a>
                         </li>
                     </ul>
                     <!-- end dropdown-user -->
@@ -108,13 +108,13 @@
                         <!--end user image section-->
                     </li>
                     <li class="">
-                        <a href="@Url.Action("Index", "MyPackage")"><i class="fa fa-dashboard fa-fw"></i> @Resources.MyPackage.MyPackagesTravel</a>
+                        <a href="@Url.Action("MyPackage", "TravelPackageBuy")"><i class="fa fa-dashboard fa-fw"></i> @Resources.MyPackage.MyPackagesTravel</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Edit", "Register")"><i class="fa fa-user fa-fw"></i> @Resources.Customer.Profile</a>
+                        <a href="@Url.Action("EditCustomer", "Customer", new { id = Session["idCustomer"] })"><i class="fa fa-user fa-fw"></i> @Resources.Customer.Profile</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index", "TravelPackageBuy")"><i class="fa fa-shopping-cart fa-fw"></i> @Resources.TravelPackageBuy.BuyPackages</a>
+                        <a href="@Url.Action("BuyPackageIndex", "TravelPackage")"><i class="fa fa-shopping-cart fa-fw"></i> @Resources.TravelPackageBuy.BuyPackages</a>
                     </li>
                 </ul>
                 <!-- end side-menu -->

@@ -1,7 +1,7 @@
-﻿@model List<Model.TravelPackageBuy>
+﻿@model List<Model.TravelPackage>
 
 @{
-    ViewBag.Title = Resources.MyPackage.Title;
+    ViewBag.Title = Resources.TravelPackageBuy.Title;
     Layout = "~/Views/Shared/_LayoutAdminCustomer.cshtml";
 }
 
@@ -9,13 +9,13 @@
 {
     <link href="~/assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 }
-
+    
 <div id="page-wrapper">
 
     <div class="row">
         <!--  page header -->
         <div class="col-lg-12">
-            <h1 class="page-header">@Resources.MyPackage.Title</h1>
+            <h1 class="page-header">@Resources.TravelPackageBuy.Title</h1>
         </div>
         <!-- end  page header -->
     </div>
@@ -24,7 +24,7 @@
             <!-- Advanced Tables -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>@Resources.MyPackage.Instruction</h3> 
+                    <h3>@Resources.TravelPackageBuy.Instruction</h3> 
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive table-striped">
@@ -32,33 +32,28 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>@Resources.MyPackage.CityOrigin</th>
-                                    <th>@Resources.MyPackage.CityDestination</th>
-                                    <th>@Resources.MyPackage.Priece</th>
-                                    <th>@Resources.MyPackage.Status</th>
+                                    <th>@Resources.TravelPackage.CityOrigin</th>
+                                    <th>@Resources.TravelPackage.CityDestination</th>
+                                    <th>@Resources.TravelPackage.Priece</th>
                                     <th>-</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (Model.TravelPackageBuy travel in Model)
+                                @foreach (Model.TravelPackage travel in Model)
                                 {
                                     <tr>
                                         <td>@travel.Id</td>
-                                        <td>@string.Concat(@travel.TravelPackage.CityOrigin.Name + "/ " + @travel.TravelPackage.CityOrigin.State)</td>
-                                        <td>@string.Concat(@travel.TravelPackage.CityDestination.Name + "/ " + @travel.TravelPackage.CityDestination.State)</td>
-                                        <td>@travel.TravelPackage.Priece</td>
+                                        <td>@string.Concat(@travel.CityOrigin.Name + "/ " + @travel.CityOrigin.State)</td>
+                                        <td>@string.Concat(@travel.CityDestination.Name + "/ " + @travel.CityDestination.State)</td>
+                                        <td>@travel.Priece</td>
                                         <td class="center">
-                                            @switch (travel.Status)
-                                            {
-                                                case 1: @Resources.MyPackage.Status1
-                                                    break;
-                                                case 2: @Resources.MyPackage.Status2
-                                                    break;
-                                                case 3: @Resources.MyPackage.Status3
-                                                    break;
-                                            }   
+                                            <a data-ajax="true" data-ajax-method="POST" data-ajax-success="onSuccessBuy"
+                                               href="@Url.Action("CreateCustomer", "TravelPackageBuy", new { id = travel.Id})"
+                                               data-ajax-confirm="@string.Concat(@Resources.Global.ConfirmBuyPackage, " ", @travel.CityOrigin.Name, " X ", @travel.CityDestination.Name,
+                                               " - $ ", @travel.Priece)"><i class="fa fa-shopping-cart fa-fw"></i></a>
+
+                                            <a href="@Url.Action("Details", "TravelPackage", new { id = travel.Id })"><i class="fa fa-search fa-fw"></i></a>
                                         </td>
-                                        <td><a href="@Url.Action("Details", "MyPackage", new { id = travel.Id })"><i class="fa fa-search fa-fw"></i></a></td>
                                     </tr>
                                 }
 
@@ -71,6 +66,9 @@
             <!--End Advanced Tables -->
         </div>
     </div>
+
+
+
 </div>
 
 
@@ -87,12 +85,13 @@
             });
         });
 
-        var nb;
-        function onSuccessDelete(result) {
-            if (result == "ok") {
-                alert('@Resources.Global.SuccessRemove')
-            } else {
-                alert('@Resources.Global.FailRemove')
+        function onSuccessBuy(result) {
+            if(result == "ok")
+            {
+                alert('@Resources.Global.SuccessBuyPackage')
+            }else
+            {
+                alert('@Resources.Global.FailedBuyPackage')
             }
 
             window.location.reload();

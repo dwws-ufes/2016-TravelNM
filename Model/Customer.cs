@@ -10,8 +10,6 @@ namespace Model
     public class Customer : Entity
     {
         public string Name { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateBirth { get; set; } 
         public string Address { get; set; }
         public string Number { get; set; }
