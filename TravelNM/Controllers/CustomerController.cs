@@ -130,21 +130,35 @@ namespace TravelNM.Controllers
                         customerview.Customer.Status = 1;
 
                     this._maintenance.Save(customerview.Customer);
-
-                    if (customerview.Customer.Neighborhood == null)
-                    {
-                        FormsAuthentication.SetAuthCookie(customerview.Customer.Email, false);
-                        Session["IdCustomer"] = _maintenance.Search(new[] { customerview.Customer.Email }).ToList().First().Id.ToString();
-
-                        string ReturnUrl = (string)Session["ReturnUrl"];
-                        if (string.IsNullOrWhiteSpace(ReturnUrl))
-                            return RedirectToAction("BuyPackageIndex", "TravelPackage");
-                        else
-                            return Redirect(ReturnUrl);
-                    }
-                    else 
-                        return RedirectToAction("Index");
+                    return RedirectToAction("Index");
                 }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken()]
+        [AllowAnonymous]
+        public ActionResult CreateUser(CustomerView customerview, Methods methods)
+        {
+            var culture = System.Globalization.CultureInfo.CurrentCulture;
+            
+            customerview.Customer.Salt = Crypto.GenerateSalt();
+            customerview.Customer.Password = methods.GenHashSalt(customerview.Customer.Password, customerview.Customer.Salt);
+
+            if (Request.Form["Status"] != null)
+                customerview.Customer.Status = int.Parse(Request.Form["Status"].ToString());
+            else
+                customerview.Customer.Status = 1;
+
+            this._maintenance.Save(customerview.Customer);
+
+            FormsAuthentication.SetAuthCookie(customerview.Customer.Email, false);
+            Session["IdCustomer"] = _maintenance.Search(new[] { customerview.Customer.Email }).ToList().First().Id.ToString();
+
+            string ReturnUrl = (string)Session["ReturnUrl"];
+            if (string.IsNullOrWhiteSpace(ReturnUrl))
+                return RedirectToAction("BuyPackageIndex", "TravelPackage");
+            else
+                return Redirect(ReturnUrl);
         }
 
         public void MessageVal(string Message, string Url)

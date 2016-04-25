@@ -45,25 +45,10 @@
     </div>
 </div>
 
-
 @section scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/globalize")
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
-
-    <script src="/scripts/jquery.validate.js"></script>
-    <script src="/scripts/jquery.validate.unobtrusive.js"></script>
 
     <script src="~/Scripts/jquery.maskedinput.min.js"></script>
     <script src="~/Scripts/jquery-maskmoney.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $("#Customer_DateBirth").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
-        });
-    </script>
 
     <script>
         jQuery(function ($) {

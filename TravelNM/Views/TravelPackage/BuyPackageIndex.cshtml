@@ -88,13 +88,14 @@
         function onSuccessBuy(result) {
             if(result == "ok")
             {
-                alert('@Resources.Global.SuccessBuyPackage')
+                //alert('@Resources.Global.SuccessBuyPackage')
+                window.location = '@Url.Action("MyPackage", "TravelPackageBuy")';
             }else
             {
                 alert('@Resources.Global.FailedBuyPackage')
             }
 
-            window.location.reload();
+            //window.location.reload();
         }
 
     </script>
