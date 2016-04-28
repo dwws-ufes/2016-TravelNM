@@ -556,6 +556,7 @@
       <LastGenOutput>Error.designer.cs</LastGenOutput>
     </Content>
     <Content Include="readme.md" />
+    <Content Include="Banco\TravelMN.sqlite" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
