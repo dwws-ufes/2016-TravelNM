@@ -2,7 +2,7 @@
 
 <b>TRAVEL MN</b>
 
-<br>
+<br><br>
 
 <p>Assignment for the 2016 edition of the "Web Development and the Semantic Web" course, by Nilber Vittorazzi de Almeida and Marcio Freitas.</p>
 
