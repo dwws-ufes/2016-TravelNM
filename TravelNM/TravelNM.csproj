@@ -771,11 +771,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Banco\TravelMN.sqlite">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\Error.cshtml">
       <BrowseToURL>~/Shared/Error</BrowseToURL>
     </Content>
