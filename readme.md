@@ -14,9 +14,9 @@
 
 <p>3 - After downloading the project, click the newly created project;</p>
 
-<p>4 - In Travel MN project properties alter target framework for 4.5, because VS 2015.</p>
+<p>4 - In Travel MN project properties alter target framework for 4.5, because VS 2015;</p>
 
-<p>5 - When you run the application, all libraries will be automatically downloaded.</p>
+<p>5 - When you run the application, all libraries will be automatically downloaded;</p>
 
 <p>6 - The database used is SQLite 3. We need to change the path of the database on the web config file, like this:</p>
 
