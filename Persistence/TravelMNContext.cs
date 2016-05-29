@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using Model;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using VDS.RDF.Storage;
 
 namespace Persistence
 {
@@ -26,5 +27,11 @@ namespace Persistence
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
         }
+
+        public StardogConnector Stardog = new StardogConnector("http://localhost:5820", "TravelNM", "travelnm", "123456");
+
     }
 }
+
+
+

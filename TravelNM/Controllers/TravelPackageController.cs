@@ -3,6 +3,9 @@ using Model;
 using System;
 using System.Web.Mvc;
 using TravelNM.Models;
+using Persistence;
+using VDS.RDF.Storage;
+using VDS.RDF.Query;
 
 namespace TravelNM.Controllers
 {
@@ -85,5 +88,42 @@ namespace TravelNM.Controllers
             travelpackage = _maintenance.Get(travelpackage.Id);
             return View(travelpackage);
         }
+
+        public static string Prefixes()
+        {
+            return "PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>" + System.Environment.NewLine
+            + "PREFIX dbpprop: <http://dbpedia.org/property/>" + System.Environment.NewLine;
+        }
+
+
+        public ActionResult SearchCitySparql(int Id, TravelMNContext travelmncontext, TravelPackageView travelpackageview)
+        {
+            string Command =
+
+                 @"SELECT ?desc ?name WHERE { ?x a dbpedia-owl:Place; dbpprop:name ?name; dbpedia-owl:abstract " +
+                 "?desc. FILTER(str(?name) = " + "'" + _maintenanceCity.Get(Id).Name + "'"
+                 + " ) FILTER(langMatches(lang(?desc), 'pt')) }";
+
+            Object results = travelmncontext.Stardog.Query(Prefixes() + Command);
+
+            if (results is SparqlResultSet)
+            {
+                SparqlResultSet rset = (SparqlResultSet)results;
+                string varDesc;
+
+                if (rset.Count >= 1)
+                    varDesc = rset.Results[0].ToString().Remove(0,8);
+                else
+                    varDesc = "";
+
+                return Json(varDesc, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                throw new Exception("query failed " + Command);
+            }
+        }
+
+
     }
 }

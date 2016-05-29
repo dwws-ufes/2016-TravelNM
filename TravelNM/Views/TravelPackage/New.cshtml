@@ -51,4 +51,25 @@
             $("#TravelPackage_Priece").maskMoney({ showSymbol: false, symbol: "R$", decimal: ".", thousands: "" });
         });
     </script>
+
+
+<script>
+    function SearchCitySparql() {
+        var cityId = $('#TravelPackage_CityDestination_Id').val()
+    $.ajax({
+        url: '/en-us/TravelPackage/SearchCitySparql',
+        url: '/pt-br/TravelPackage/SearchCitySparql',
+        type: "GET",
+        dataType: "JSON",
+        data: { Id: cityId },
+        success: function (varDesc) {
+            $("#TravelPackage_Description").html(""); 
+            $("#TravelPackage_Description").html(varDesc);
+        }
+    });
+  }
+</script>
+
+
 }
+

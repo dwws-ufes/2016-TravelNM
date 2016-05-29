@@ -9,22 +9,27 @@
 <div class="form-group">
     @Html.LabelFor(model => model.TravelPackage.CityOrigin.Id, Resources.TravelPackage.CityOrigin)
     @Html.DropDownListFor(model => model.TravelPackage.CityOrigin.Id, new SelectList((from c in Model.Cities.ToList()
-        select new
-        {
-            Value = c.Id,
-            Text = c.Name + "/ " + c.State
-        }), "Value", "Text"),
+                                                                                       select new
+                                                                                       {
+                                                                                           Value = c.Id,
+                                                                                           Text = c.Name + "/ " + c.State
+                                                                                       }), "Value", "Text"),
     new { @class = "form-control", @required = true })
 </div>
 <div class="form-group">
     @Html.LabelFor(model => model.TravelPackage.CityDestination.Id, Resources.TravelPackage.CityDestination)
     @Html.DropDownListFor(model => model.TravelPackage.CityDestination.Id, new SelectList((from c in Model.Cities.ToList()
-        select new
-        {
-            Value = c.Id,
-            Text = c.Name + "/ " + c.State
-        }), "Value", "Text"),
-    new { @class = "form-control", @required = true })
+                                                                                            select new
+                                                                                            {
+                                                                                                Value = c.Id,
+                                                                                                Text = c.Name + "/ " + c.State
+                                                                                            }), "Value", "Text"),
+new
+{
+    @class = "form-control",
+    @required = true,
+    @onchange = "SearchCitySparql()"
+})
 </div>
 <div class="form-group">
     @Html.LabelFor(model => model.TravelPackage.Priece, Resources.TravelPackage.Priece)
@@ -35,3 +40,5 @@
     @Html.LabelFor(model => model.TravelPackage.Description, Resources.TravelPackage.Description)
     @Html.TextAreaFor(model => model.TravelPackage.Description, new { @class = "form-control", @required = true, cols = 25, @rows = 5 })
 </div>
+
+
