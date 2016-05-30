@@ -56,9 +56,8 @@
 <script>
     function SearchCitySparql() {
         var cityId = $('#TravelPackage_CityDestination_Id').val()
-    $.ajax({
-        url: '/en-us/TravelPackage/SearchCitySparql',
-        url: '/pt-br/TravelPackage/SearchCitySparql',
+        $.ajax({
+        url:'@Url.Action("SearchCitySparql", "TravelPackage")',
         type: "GET",
         dataType: "JSON",
         data: { Id: cityId },
