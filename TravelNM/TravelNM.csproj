@@ -292,6 +292,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\LocalizationAttribute.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Controllers\RDFController.cs" />
     <Compile Include="Controllers\TravelPackageBuyController.cs" />
     <Compile Include="Controllers\UnauthorizedErrorController.cs" />
     <Compile Include="Controllers\AdminController.cs" />

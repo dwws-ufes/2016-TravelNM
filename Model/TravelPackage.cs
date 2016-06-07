@@ -6,5 +6,6 @@
         public City CityDestination { get; set; }
         public decimal Priece { get; set; }
         public string Description { get; set; }
+        public string SameAs { get; set; }
     }
 }

@@ -52,23 +52,20 @@
         });
     </script>
 
-
-<script>
-    function SearchCitySparql() {
-        var cityId = $('#TravelPackage_CityDestination_Id').val()
-        $.ajax({
-        url:'@Url.Action("SearchCitySparql", "TravelPackage")',
-        type: "GET",
-        dataType: "JSON",
-        data: { Id: cityId },
-        success: function (varDesc) {
-            $("#TravelPackage_Description").html(""); 
-            $("#TravelPackage_Description").html(varDesc);
-        }
-    });
-  }
-</script>
-
-
+    <script>
+        function SearchCitySparql() {
+            var cityId = $('#TravelPackage_CityDestination_Id').val()
+            $.ajax({
+            url:'@Url.Action("SearchCitySparql", "TravelPackage")',
+            type: "GET",
+            dataType: "JSON",
+            data: { Id: cityId },
+            success: function (varDesc) {
+                $("#TravelPackage_Description").html(""); 
+                $("#TravelPackage_Description").html(varDesc);
+            }
+        });
+      }
+    </script>
 }
 
