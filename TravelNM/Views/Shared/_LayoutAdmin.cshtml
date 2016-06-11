@@ -74,8 +74,8 @@
                             <a href="#"><i class="fa fa-user fa-fw"></i>@Resources.User.UserProfile</a>
                         </li>
                         @*<li>
-                                <a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
-                            </li>*@
+                        <a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                    </li>*@
                         <li class="divider"></li>
                         <li>
                             <a href="@Url.Action("Logout", "Authentication")"><i class="fa fa-sign-out fa-fw"></i>@Resources.User.Logout</a>
@@ -95,7 +95,11 @@
                         <li>
                             <a href="@Url.Action("Index", "TravelPackageBuy")"><i class="fa fa-shopping-cart fa-fw"></i> @Resources.SoldPackage.SoldPackages</a>
                         </li>
-                    </ul>
+
+                        <li>
+                            <a href="@Url.Action("Index", "QueryProcessor")"><i class="fa fa-question"></i> @Resources.QueryProcessor.QueriesProcessor</a>
+                        </li>
+            </ul>
                     <!-- end dropdown-user -->
                 </li>
                 <!-- end main dropdown -->
@@ -130,8 +134,9 @@
                     <li>
                         <a href="@Url.Action("Index", "Customer")"><i class="fa fa-users fa-fw"></i> @Resources.Customer.Customers</a>
                     </li>
+
                     <li>
-                        <a href="@Url.Action("Index", "TravelPackageBuy")"><i class="fa fa-shopping-cart fa-fw"></i> @Resources.SoldPackage.SoldPackages</a>
+                        <a href="@Url.Action("Index", "QueryProcessor")"><i class="fa fa-question"></i> @Resources.QueryProcessor.QueriesProcessor</a>
                     </li>
                 </ul>
                 <!-- end side-menu -->

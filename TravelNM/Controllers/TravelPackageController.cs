@@ -4,7 +4,6 @@ using System;
 using System.Web.Mvc;
 using TravelNM.Models;
 using Persistence;
-using VDS.RDF.Storage;
 using VDS.RDF.Query;
 
 namespace TravelNM.Controllers
@@ -78,9 +77,20 @@ namespace TravelNM.Controllers
         }
 
         [HttpPost]
-        public JsonResult Delete(TravelPackage travelpackage)
+        public JsonResult Delete(TravelPackage travelpackage, Methods methods, TravelMNContext travelmncontext)
         {
             this._maintenance.Delete(travelpackage);
+
+            String Origin = methods.GetStringNoAccents(_maintenanceCity.Get(travelpackage.IdCityOrigin).Name);
+
+            String Destination = methods.GetStringNoAccents(_maintenanceCity.Get(travelpackage.IdCityDestination).Name);
+
+            if (System.IO.File.Exists(@"C:\Dell\" + Origin.Replace(" ", "-") + "_to_" +
+               Destination.Replace(" ", "-") + ".rdf"))
+
+                System.IO.File.Delete(@"C:\Dell\" + Origin.Replace(" ", "-") + "_to_" +
+                Destination.Replace(" ", "-") + ".rdf");
+
             return Json("ok");
         }
 

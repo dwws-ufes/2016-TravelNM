@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Model
 {
     public class TravelPackage : Entity
     {
@@ -7,5 +9,12 @@
         public decimal Priece { get; set; }
         public string Description { get; set; }
         public string SameAs { get; set; }
+
+        [NotMapped]
+        public int IdCityOrigin { get; set; }
+
+        [NotMapped]
+        public int IdCityDestination { get; set; }
+
     }
 }

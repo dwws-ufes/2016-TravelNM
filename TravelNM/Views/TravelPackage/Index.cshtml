@@ -50,7 +50,11 @@
                                         <td>@travel.Priece</td>
                                         <td class="center">
                                             <a href="@Url.Action("Edit", "TravelPackage", new { id = travel.Id })"><i class="fa fa-edit fa-fw"></i></a>
-                                            <a data-ajax="true" data-ajax-method="POST" data-ajax-success="onSuccessDelete" href="@Url.Action("Delete", "TravelPackage", new { id = travel.Id })" data-ajax-confirm="@Resources.Global.ConfirmRemove"><i class="fa fa-trash-o fa-fw"></i></a>
+                                            <a data-ajax="true" data-ajax-method="POST" data-ajax-success="onSuccessDelete" 
+                                            href="@Url.Action("Delete", "TravelPackage", new { id = travel.Id,
+                                                 IdCityOrigin = travel.CityOrigin.Id, 
+                                                 IdCityDestination = travel.CityDestination.Id })" 
+                                            data-ajax-confirm="@Resources.Global.ConfirmRemove"><i class="fa fa-trash-o fa-fw"></i></a>
                                         </td>
                                     </tr>
                                 }

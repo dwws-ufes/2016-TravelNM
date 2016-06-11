@@ -30,6 +30,8 @@ namespace Persistence
 
         public StardogConnector Stardog = new StardogConnector("http://localhost:5820", "TravelNM", "travelnm", "123456");
 
+        public StardogConnector StardogRDF = new StardogConnector("http://localhost:5820", "TravelNMRDF", "travelnm", "123456");
+
     }
 }
 

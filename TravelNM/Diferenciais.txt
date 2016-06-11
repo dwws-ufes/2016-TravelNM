@@ -6,3 +6,17 @@
  - Jquery Autocomplete
  - Jquery Datatables
  - Página de erro customizada
+
+
+ T2
+
+ - Uso do Stardog importando as cidades da DBPedia - ok
+ - Uso de DCterms Purl - ok
+ - URL amigável - ok
+ - Salvando e excluíndo o pacote no HD - ok
+ - Query Processor para pequisar pacotes escritos NO STARDOG - ok
+
+
+ - Uso de Vocabulário próprio com página de ontologia
+ - Operações de Insert, Update e Delete no Stardog do pacote PROPRIETÁRIO recem inscrito
+ - Uso de SameAs

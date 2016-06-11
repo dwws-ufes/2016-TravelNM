@@ -11,6 +11,7 @@ namespace ApplicationTravelMN.classes
     public class TravelPackageMaintenance : IMaintenance<TravelPackage>
     {
         TravelMNContext context = new TravelMNContext();
+
         public void Save(TravelPackage t)
         {
             context.TravelPackages.Attach(t);
