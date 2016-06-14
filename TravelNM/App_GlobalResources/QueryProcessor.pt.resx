@@ -119,7 +119,6 @@
   </resheader>
   <data name="Clear" xml:space="preserve">
     <value>Limpar Consulta</value>
-    <comment> </comment>
   </data>
   <data name="Object" xml:space="preserve">
     <value>Objeto</value>
@@ -131,7 +130,7 @@
     <value>Escreva a consulta SPARQL no campo abaixo</value>
   </data>
   <data name="QueriesProcessor" xml:space="preserve">
-    <value>Processador de Consultas</value>
+    <value>Processador de Consultas SPARQL</value>
   </data>
   <data name="Run" xml:space="preserve">
     <value>Executar Consulta</value>

@@ -71,6 +71,7 @@ namespace TravelNM.App_Start
             kernel.Bind<IMaintenance<TravelPackage>>().To<TravelPackageMaintenance>();
             kernel.Bind<IMaintenance<Customer>>().To<CustormeMaintenance>();
             kernel.Bind<IMaintenance<TravelPackageBuy>>().To<TravelPackageBuyMaintenance>();
+            kernel.Bind<IRDFMaintenance<RDFTriple>>().To<RDFMaintenance>();
         }        
     }
 }

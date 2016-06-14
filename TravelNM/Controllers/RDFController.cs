@@ -15,11 +15,16 @@ namespace TravelNM.Controllers
 
         private Methods _methods;
 
-        public RDFController(IMaintenance<TravelPackage> maintenance, Methods methods)
+        private IRDFMaintenance<RDFTriple> _maintenancerdf;
+
+        public RDFController(IMaintenance<TravelPackage> maintenance, Methods methods,
+            IRDFMaintenance<RDFTriple> maintenancerdf)
         {
             this._maintenance = maintenance;
 
             this._methods = methods;
+
+            this._maintenancerdf = maintenancerdf;
         }
 
         public void Package(string id, int Id)
@@ -32,7 +37,8 @@ namespace TravelNM.Controllers
 
             IGraph graph = new Graph(true);
 
-            IUriNode dotNetRDF = graph.CreateUriNode(UriFactory.Create("http://localhost:58402/rdf/SeePackage/" + _methods.GetStringNoAccents(id.Replace(" ", "-"))));
+            IUriNode dotNetRDF = graph.CreateUriNode(UriFactory.Create("http://localhost:58402/rdf/SeePackage/" +
+                _methods.GetStringNoAccents(id.Replace(" ", "-"))));
 
             graph.NamespaceMap.AddNamespace("tnm", UriFactory.Create("http://localhost:58402/voctravel/v1#"));
             IUriNode uri_local = graph.CreateUriNode("tnm:hasOrigin");
@@ -56,13 +62,13 @@ namespace TravelNM.Controllers
 
             graph.NamespaceMap.AddNamespace("owl", UriFactory.Create("http://www.w3.org/2002/07/owl#"));
             IUriNode uri_sameas = graph.CreateUriNode("owl:sameAS");
-            ILiteralNode sameas = graph.CreateLiteralNode(_methods.GetStringNoAccents(travelpackage.SameAs));
-            graph.Assert(new Triple(dotNetRDF, uri_sameas,  sameas));
+            ILiteralNode sameas = graph.CreateLiteralNode(_methods.GetStringNoAccents("SAMEAS UNDEFINIED"));
+            graph.Assert(new Triple(dotNetRDF, uri_sameas, sameas));
 
 
             graph.NamespaceMap.AddNamespace("dcterms", UriFactory.Create("http://purl.org/dc/terms/"));
 
-            IUriNode uri_dcdatecreatedon = graph.CreateUriNode("dcterms:created");       
+            IUriNode uri_dcdatecreatedon = graph.CreateUriNode("dcterms:created");
             ILiteralNode dcdatecreatedon = graph.CreateLiteralNode(Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy")));
             graph.Assert(new Triple(dotNetRDF, uri_dcdatecreatedon, dcdatecreatedon));
 
@@ -77,13 +83,21 @@ namespace TravelNM.Controllers
             RdfXmlWriter rdfxmlwriter = new RdfXmlWriter();
 
             if (System.IO.File.Exists(@"C:\Dell\" + Origin.Replace(" ", "-") + "_to_" +
-                Destination.Replace(" ", "-") + ".rdf"))
+               Destination.Replace(" ", "-") + ".rdf"))
+            {
+                deleteRDF(@"C:\Dell\" + Origin.Replace(" ", "-") + "_to_" +
+                Destination.Replace(" ", "-") + ".rdf", Origin, Destination);
 
                 System.IO.File.Delete(@"C:\Dell\" + Origin.Replace(" ", "-") + "_to_" +
                 Destination.Replace(" ", "-") + ".rdf");
+            }
 
-            rdfxmlwriter.Save(graph, @"C:\Dell\" + Origin.Replace(" ","-") + "_to_" +
+            rdfxmlwriter.Save(graph, @"C:\Dell\" + Origin.Replace(" ", "-") + "_to_" +
                 Destination.Replace(" ", "-") + ".rdf");
+
+            _maintenancerdf.SaveTNM(graph, UriFactory.Create("http://localhost:58402/rdf/SeePackage/" +
+                _methods.GetStringNoAccents(id.Replace(" ", "-"))));
+
         }
 
         public string SeePackage(string id)
@@ -122,7 +136,7 @@ namespace TravelNM.Controllers
 
             graph.NamespaceMap.AddNamespace("owl", UriFactory.Create("http://www.w3.org/2002/07/owl#"));
             IUriNode uri_sameas = graph.CreateUriNode("owl:sameAS");
-            ILiteralNode sameas = graph.CreateLiteralNode(travelpackage.SameAs);
+            ILiteralNode sameas = graph.CreateLiteralNode("SAMEAS UNDEFINIED");
             graph.Assert(new Triple(dotNetRDF, uri_sameas, sameas));
 
 
@@ -138,12 +152,28 @@ namespace TravelNM.Controllers
 
             IUriNode uri_dccreate = graph.CreateUriNode("dcterms:create");
             ILiteralNode dccreate = graph.CreateLiteralNode("Created by Travel NM");
-            graph.Assert(new Triple(dotNetRDF, uri_dccreate, dccreate));          
+            graph.Assert(new Triple(dotNetRDF, uri_dccreate, dccreate));
 
             string graphStr = System.IO.File.ReadAllText(@"C:\Dell\" + Origin.Replace(" ", "-") + "_to_" +
                 Destination.Replace(" ", "-") + ".rdf");
 
             return graphStr;
+        }
+
+        public void deleteRDF(String Path, String Origin, String Destination)
+        {
+            IGraph graph = new Graph();
+            graph.LoadFromFile(Path);
+            graph.BaseUri = null;
+
+            _maintenancerdf.DeleteTNM(graph);
+                
+            if (System.IO.File.Exists(@"C:\Dell\" + Origin.Replace(" ", "-") + "_to_" +
+               Destination.Replace(" ", "-") + ".rdf"))
+            {
+                System.IO.File.Delete(@"C:\Dell\" + Origin.Replace(" ", "-") + "_to_" +
+                Destination.Replace(" ", "-") + ".rdf");
+            }
         }
     }
 }

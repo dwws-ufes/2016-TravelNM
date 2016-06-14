@@ -1,4 +1,6 @@
-﻿ - Sistema responsivo
+﻿ T1
+ 
+ - Sistema responsivo
  - Suporte a vários idiomas
  - Validações com HTML5
  - Login com Salt Criptografia MD5
@@ -15,8 +17,7 @@
  - URL amigável - ok
  - Salvando e excluíndo o pacote no HD - ok
  - Query Processor para pequisar pacotes escritos NO STARDOG - ok
+ - Operações de Insert, Update e Delete no Stardog do pacote PROPRIETÁRIO recem inscrito - ok
 
-
- - Uso de Vocabulário próprio com página de ontologia
- - Operações de Insert, Update e Delete no Stardog do pacote PROPRIETÁRIO recem inscrito
- - Uso de SameAs
+- Uso de Vocabulário próprio com página de ontologia
+- Uso de SameAs

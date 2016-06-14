@@ -130,7 +130,7 @@
     <value>Write the SPARQL query in the box below</value>
   </data>
   <data name="QueriesProcessor" xml:space="preserve">
-    <value>Query Processor</value>
+    <value>SPARQL Query Processor</value>
   </data>
   <data name="Run" xml:space="preserve">
     <value>Run Query</value>

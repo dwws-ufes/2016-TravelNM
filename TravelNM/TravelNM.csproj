@@ -320,7 +320,6 @@
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Methods.cs" />
     <Compile Include="Models\CustomerView.cs" />
-    <Compile Include="Models\QueryProcessorView.cs" />
     <Compile Include="Models\DashboardView.cs" />
     <Compile Include="Models\TravelPackageBuyView.cs" />
     <Compile Include="Models\TravelPackageView.cs" />

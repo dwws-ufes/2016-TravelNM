@@ -97,7 +97,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Query Processor.
+        ///   Looks up a localized string similar to SPARQL Query Processor.
         /// </summary>
         internal static string QueriesProcessor {
             get {

@@ -3,7 +3,6 @@ using Model;
 using System;
 using System.Web.Mvc;
 using TravelNM.Models;
-using Persistence;
 using VDS.RDF.Query;
 
 namespace TravelNM.Controllers
@@ -16,14 +15,15 @@ namespace TravelNM.Controllers
 
         private RDFController _rdfcontroller;
 
-        static String SameAs;
+        private IRDFMaintenance<RDFTriple> _maintenancerdf;
 
         public TravelPackageController(IMaintenance<TravelPackage> maintenance, IMaintenance<City> maintenanceCity,
-            RDFController rdfcontroller)
+            RDFController rdfcontroller, IRDFMaintenance<RDFTriple> maintenancerdf)
         {
             this._maintenance = maintenance;
             this._maintenanceCity = maintenanceCity;
             this._rdfcontroller = rdfcontroller;
+            this._maintenancerdf = maintenancerdf;
         }
 
         public ActionResult Index()
@@ -46,7 +46,6 @@ namespace TravelNM.Controllers
         {
             travelpackageview.TravelPackage = this._maintenance.Get(id);
             travelpackageview.Cities = _maintenanceCity.GetAll();
-            SameAs = travelpackageview.TravelPackage.SameAs;
             return View(travelpackageview);
         }
 
@@ -56,16 +55,13 @@ namespace TravelNM.Controllers
         {
             if (travelpackageview.TravelPackage.CityOrigin.Id != travelpackageview.TravelPackage.CityDestination.Id)
             {
-               travelpackageview.TravelPackage.SameAs = SameAs;
-
                 this._maintenance.Update(travelpackageview.TravelPackage);
 
-                String Origin = _maintenanceCity.Get(travelpackageview.TravelPackage.CityOrigin.Id).Name;
-                
+                String Origin = _maintenanceCity.Get(travelpackageview.TravelPackage.CityOrigin.Id).Name;     
                 String Destination = _maintenanceCity.Get(travelpackageview.TravelPackage.CityDestination.Id).Name;
 
                 _rdfcontroller.Package(Origin.ToString().Replace("-", "") + "_" +
-                    Destination.ToString().Replace("-", ""), travelpackageview.TravelPackage.Id);
+                Destination.ToString().Replace("-", ""), travelpackageview.TravelPackage.Id);
                
                 return RedirectToAction("Index");
             }
@@ -77,7 +73,7 @@ namespace TravelNM.Controllers
         }
 
         [HttpPost]
-        public JsonResult Delete(TravelPackage travelpackage, Methods methods, TravelMNContext travelmncontext)
+        public JsonResult Delete(TravelPackage travelpackage, Methods methods)
         {
             this._maintenance.Delete(travelpackage);
 
@@ -85,11 +81,8 @@ namespace TravelNM.Controllers
 
             String Destination = methods.GetStringNoAccents(_maintenanceCity.Get(travelpackage.IdCityDestination).Name);
 
-            if (System.IO.File.Exists(@"C:\Dell\" + Origin.Replace(" ", "-") + "_to_" +
-               Destination.Replace(" ", "-") + ".rdf"))
-
-                System.IO.File.Delete(@"C:\Dell\" + Origin.Replace(" ", "-") + "_to_" +
-                Destination.Replace(" ", "-") + ".rdf");
+            _rdfcontroller.deleteRDF(@"C:\Dell\" + Origin.Replace(" ", "-") + "_to_" +
+            Destination.Replace(" ", "-") + ".rdf", Origin, Destination);
 
             return Json("ok");
         }
@@ -100,12 +93,9 @@ namespace TravelNM.Controllers
         {
             if (travelpackageview.TravelPackage.CityOrigin.Id != travelpackageview.TravelPackage.CityDestination.Id)
             {
-                travelpackageview.TravelPackage.SameAs = SameAs;
-
                 this._maintenance.Save(travelpackageview.TravelPackage);
 
                 String Origin = _maintenanceCity.Get(travelpackageview.TravelPackage.CityOrigin.Id).Name;
-
                 String Destination = _maintenanceCity.Get(travelpackageview.TravelPackage.CityDestination.Id).Name;
 
                 _rdfcontroller.Package(Origin.ToString().Replace("-", "") + "_" +
@@ -132,8 +122,7 @@ namespace TravelNM.Controllers
             + "PREFIX dbpprop: <http://dbpedia.org/property/>" + System.Environment.NewLine;
         }
 
-
-        public ActionResult SearchCitySparql(int Id, TravelMNContext travelmncontext, TravelPackageView travelpackageview)
+        public ActionResult SearchCitySparql(int Id, TravelPackageView travelpackageview)
         {
             string Command =
 
@@ -141,7 +130,7 @@ namespace TravelNM.Controllers
                  "?desc. FILTER(str(?name) = " + "'" + _maintenanceCity.Get(Id).Name + "'"
                  + " ) FILTER(langMatches(lang(?desc), 'pt')) }";
 
-            Object results = travelmncontext.Stardog.Query(Prefixes() + Command);
+            Object results = _maintenancerdf.Get(Prefixes() + Command);
 
             if (results is SparqlResultSet)
             {
@@ -155,10 +144,6 @@ namespace TravelNM.Controllers
                     string[] strs = str.Remove(0, 5).Split('?');
 
                     varDesc = strs[1].Remove(0, 7);
-
-                    SameAs = strs[0].Replace(", ", "");
-
-                    SameAs = System.Web.HttpUtility.HtmlDecode(SameAs);
                 }
                 else
                     varDesc = "";

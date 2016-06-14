@@ -1,4 +1,4 @@
-﻿@model List<TravelNM.Models.QueryProcessorView>
+﻿@model List<Model.RDFTriple>
 
 @{
     ViewBag.Title = Resources.QueryProcessor.QueriesProcessor;
@@ -77,12 +77,12 @@
                 type: "Get",
                 dataType: "JSON",
                 data: { Query: Text },
-                success: function (listquery) {
+                success: function (rdftriplelist) {
                     $('#dataTables-example').dataTable(
                         {
                             destroy: true,
                             paging: true,
-                            "data": listquery,
+                            "data": rdftriplelist,
                             "columns": [{
 
                                 "data": "Subject",

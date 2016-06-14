@@ -1,6 +1,6 @@
-﻿namespace TravelNM.Models
+﻿namespace Model
 {
-    public class QueryProcessorView
+    public class RDFTriple
     {
         public string Subject { get; set; }
 
