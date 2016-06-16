@@ -1,0 +1,304 @@
+﻿@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+
+@helper selected(string c, string culture)
+{
+if (c == culture)
+{
+        @:checked="checked"
+    }
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html>
+<head>
+    <title>
+        @Resources.VocTravel.Title
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/main-style.css" rel="stylesheet" />
+
+    <link href="~/assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="~/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+    <link href="~/assets/css/main-style.css" rel="stylesheet" />
+</head>
+<body>
+    <h3>
+        @Resources.VocTravel.Title
+    </h3>
+
+    <div id="wrapper">
+        <!-- navbar top -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+            <!-- navbar-header -->
+            <div class="navbar-header">
+                <h2 style="color:#ffffff"> @Resources.VocTravel.Title</h2>
+            </div>
+            <div class="container">
+                <div class="row pull-right">
+                    <br />  
+                    @using (Html.BeginForm("SetCulture", "Authentication"))
+                    {
+                    @Html.DropDownList("culture", new SelectListItem[]
+                    {
+                    new SelectListItem() { Text = "English", Value = "en-us", Selected = ("en-us" == culture)  },
+                    new SelectListItem() { Text = "Portugues", Value = "pt-br", Selected = ("pt-br" == culture) }},
+                    new
+                    {
+                    @onchange = "form.submit();"
+                    })
+                    }
+                </div>
+            </div>
+
+        </nav>
+    </div>
+
+    <table width="100%">
+        <tbody>
+            <tr valign="top">
+                <td rowspan="6">
+                    <a class="uri" href="http://localhost:58402/voctravel/#">tnm:voctravel</a>
+                </td>
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a>
+                </td>
+                <td>
+                    <a about="http://localhost:58402/voctravel/#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rel="rdf:type" class="uri" href="http://www.w3.org/2002/07/owl#Ontology">owl:Ontology</a>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:label" class="literal">@Resources.VocTravel.Title</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#comment">rdfs:comment</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:comment" class="literal">@Resources.VocTravel.AboutTitle</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://purl.org/dc/terms/creator">dcterms:creator</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#" xmlns:dcterms="http://purl.org/dc/terms/" property="dcterms:creator" class="literal">Marcio</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://purl.org/dc/terms/created">dcterms:created</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#" xmlns:dcterms="http://purl.org/dc/terms/" property="dcterms:created" class="literal">2016-06-15</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://purl.org/dc/terms/modified">dcterms:modified</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#" xmlns:dcterms="http://purl.org/dc/terms/" property="dcterms:modified" class="literal">2016-06-15</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="7">
+                    <a name="TravelPackage"></a><a class="uri" href="http://localhost:58402/voctravel/#TravelPackage">tnm:TravelPackage</a>
+                </td>
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a>
+                </td>
+                <td>
+                    <a about="http://localhost:58402/voctravel/#TravelPackage" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rel="rdf:type" class="uri" href="http://www.w3.org/2002/07/owl#Class">owl:Class</a>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#TravelPackage" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:label" class="literal">TravelPackeage</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#commnet">rdfs:commnet</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#TravelPackage" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:commnet" class="literal">@Resources.VocTravel.CommentTravelPackage</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="4">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#TravelPackage" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:domain" class="literal">hasOrigin</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td>
+                    <span about="http://localhost:58402/voctravel/#TravelPackage" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:domain" class="literal">hasDestination</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td>
+                    <span about="http://localhost:58402/voctravel/#TravelPackage" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:domain" class="literal">hasDescription</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td>
+                    <span about="http://localhost:58402/voctravel/#TravelPackage" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:domain" class="literal">hasPrice</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="3">
+                    <a name="hasOrigin"></a><a class="uri" href="http://localhost:58402/voctravel/#hasOrigin">tnm:hasOrigin</a>
+                </td>
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a>
+                </td>
+                <td>
+                    <a about="http://localhost:58402/voctravel/#hasOrigin" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rel="rdf:type" class="uri" href="http://www.w3.org/2002/07/owl#DatatypeProperty">owl:DatatypeProperty</a>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#hasOrigin" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:label" class="literal">HasOrigin</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#commnet">rdfs:commnet</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#hasOrigin" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:commnet" class="literal">@Resources.VocTravel.CommentHasOrigin</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="3">
+                    <a name="hasDestination"></a><a class="uri" href="http://localhost:58402/voctravel/#hasDestination">tnm:hasDestination</a>
+                </td>
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a>
+                </td>
+                <td>
+                    <a about="http://localhost:58402/voctravel/#hasDestination" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rel="rdf:type" class="uri" href="http://www.w3.org/2002/07/owl#DatatypeProperty">owl:DatatypeProperty</a>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#hasDestination" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:label" class="literal">HasDestination</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#commnet">rdfs:commnet</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#hasDestination" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:commnet" class="literal">@Resources.VocTravel.CommentHasDestination</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="3">
+                    <a name="hasDescripton"></a><a class="uri" href="http://localhost:58402/voctravel/#hasDescripton">tnm:hasDescripton</a>
+                </td>
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a>
+                </td>
+                <td>
+                    <a about="http://localhost:58402/voctravel/#hasDescripton" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rel="rdf:type" class="uri" href="http://www.w3.org/2002/07/owl#DatatypeProperty">owl:DatatypeProperty</a>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#hasDescripton" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:label" class="literal">HasDescription</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#commnet">rdfs:commnet</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#hasDescripton" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:commnet" class="literal">@Resources.VocTravel.CommentHasDescription</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="3">
+                    <a name="hasPrice"></a><a class="uri" href="http://localhost:58402/voctravel/#hasPrice">tnm:hasPrice</a>
+                </td>
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a>
+                </td>
+                <td>
+                    <a about="http://localhost:58402/voctravel/#hasPrice" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rel="rdf:type" class="uri" href="http://www.w3.org/2002/07/owl#DatatypeProperty">owl:DatatypeProperty</a>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#hasPrice" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:label" class="literal">HasPrice</span>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td rowspan="1">
+                    <a class="uri" href="http://www.w3.org/2000/01/rdf-schema#commnet">rdfs:commnet</a>
+                </td>
+                <td>
+                    <span about="http://localhost:58402/voctravel/#hasPrice" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" property="rdfs:commnet" class="literal">@Resources.VocTravel.CommentHasPrice</span>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+</html>

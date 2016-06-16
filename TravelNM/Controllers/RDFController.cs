@@ -40,12 +40,12 @@ namespace TravelNM.Controllers
             IUriNode dotNetRDF = graph.CreateUriNode(UriFactory.Create("http://localhost:58402/rdf/SeePackage/" +
                 _methods.GetStringNoAccents(id.Replace(" ", "-"))));
 
-            graph.NamespaceMap.AddNamespace("tnm", UriFactory.Create("http://localhost:58402/voctravel/v1#"));
+            graph.NamespaceMap.AddNamespace("tnm", UriFactory.Create("http://localhost:58402/voctravel/#"));
             IUriNode uri_local = graph.CreateUriNode("tnm:hasOrigin");
             ILiteralNode local = graph.CreateLiteralNode(travelpackage.CityOrigin.Name);
             graph.Assert(new Triple(dotNetRDF, uri_local, local));
 
-            graph.NamespaceMap.AddNamespace("tnm", UriFactory.Create("http://localhost:58402/voctravel/v1#"));
+            graph.NamespaceMap.AddNamespace("tnm", UriFactory.Create("http://localhost:58402/voctravel/#"));
             IUriNode uri_local_destination = graph.CreateUriNode("tnm:hasDestination");
             ILiteralNode destination = graph.CreateLiteralNode(travelpackage.CityDestination.Name);
             graph.Assert(new Triple(dotNetRDF, uri_local_destination, destination));
@@ -62,7 +62,7 @@ namespace TravelNM.Controllers
 
             graph.NamespaceMap.AddNamespace("owl", UriFactory.Create("http://www.w3.org/2002/07/owl#"));
             IUriNode uri_sameas = graph.CreateUriNode("owl:sameAS");
-            ILiteralNode sameas = graph.CreateLiteralNode(_methods.GetStringNoAccents("SAMEAS UNDEFINIED"));
+            ILiteralNode sameas = graph.CreateLiteralNode(_methods.GetStringNoAccents("http://localhost:58402/voctravel/#TravelPackage"));
             graph.Assert(new Triple(dotNetRDF, uri_sameas, sameas));
 
 
@@ -114,12 +114,12 @@ namespace TravelNM.Controllers
 
             IUriNode dotNetRDF = graph.CreateUriNode(UriFactory.Create("http://localhost:58402/rdf/SeePackage/" + _methods.GetStringNoAccents(id.Replace(" ", "-"))));
 
-            graph.NamespaceMap.AddNamespace("tnm", UriFactory.Create("http://travelnm.org/voctravel/v1#"));
+            graph.NamespaceMap.AddNamespace("tnm", UriFactory.Create("http://localhost:58402/voctravel/#"));
             IUriNode uri_local = graph.CreateUriNode("tnm:hasOrigin");
             ILiteralNode local = graph.CreateLiteralNode(travelpackage.CityOrigin.Name);
             graph.Assert(new Triple(dotNetRDF, uri_local, local));
 
-            graph.NamespaceMap.AddNamespace("tnm", UriFactory.Create("http://travelnm.org/voctravel/v1#"));
+            graph.NamespaceMap.AddNamespace("tnm", UriFactory.Create("http://localhost:58402/voctravel/#"));
             IUriNode uri_local_destination = graph.CreateUriNode("tnm:hasDestination");
             ILiteralNode destination = graph.CreateLiteralNode(travelpackage.CityDestination.Name);
             graph.Assert(new Triple(dotNetRDF, uri_local_destination, destination));
@@ -136,7 +136,7 @@ namespace TravelNM.Controllers
 
             graph.NamespaceMap.AddNamespace("owl", UriFactory.Create("http://www.w3.org/2002/07/owl#"));
             IUriNode uri_sameas = graph.CreateUriNode("owl:sameAS");
-            ILiteralNode sameas = graph.CreateLiteralNode("SAMEAS UNDEFINIED");
+            ILiteralNode sameas = graph.CreateLiteralNode("http://localhost:58402/voctravel/#TravelPackage");
             graph.Assert(new Triple(dotNetRDF, uri_sameas, sameas));
 
 

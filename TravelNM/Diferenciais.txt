@@ -14,10 +14,15 @@
 
  - Uso do Stardog importando as cidades da DBPedia - ok
  - Uso de DCterms Purl - ok
+ 
  - URL amigável - ok
+ 
  - Salvando e excluíndo o pacote no HD - ok
- - Query Processor para pequisar pacotes escritos NO STARDOG - ok
+ 
  - Operações de Insert, Update e Delete no Stardog do pacote PROPRIETÁRIO recem inscrito - ok
-
-- Uso de Vocabulário próprio com página de ontologia
-- Uso de SameAs
+ 
+ - Query Processor para pequisar pacotes escritos NO STARDOG - ok
+ 
+ - Uso de Vocabulário no pacote publicado - ok
+ - Página com a ontologia da classe Travel Package e RDF-a embedded - ok 
+ - Uso de SameAs - ok
